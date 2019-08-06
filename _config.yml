@@ -3,7 +3,7 @@ title: Bolo
 baseurl: "/main"
 desc: made to broke things
 about: made to broke things
-image: /img/logo.jpg
+image: img/logo.jpg
 excerpt_separator: "<!-- more -->"
 markdown: kramdown
 gems:
