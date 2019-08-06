@@ -1,9 +1,9 @@
 ---
 title: Bolo
-baseurl: "/"
+baseurl: "/main"
 desc: made to broke things
 about: made to broke things
-image: ./_img/logo.jpg
+image: /img/logo.jpg
 excerpt_separator: "<!-- more -->"
 markdown: kramdown
 gems:
