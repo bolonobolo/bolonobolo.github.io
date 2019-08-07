@@ -107,7 +107,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "There are so many peoples in my memory"
+  name             : #""
   avatar           : "/assets/images/logo.jpg"
   bio              : "OSCP - BJJ"
   location         : "5061726d61202d204974616c79"
