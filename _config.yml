@@ -20,7 +20,7 @@ description: We love buffers overflow
 baseurl: /blog
 url: "https://bolonobolo.github.io"
 author: bolo
- name: bolo
+ # name: bolo
  twitter: bolonobolo
  picture: # img/logo.jpg
 twitter_username: bolonobolo
