@@ -1,18 +1,18 @@
 ---
 layout: default
 ---
-{% assign post = page %}
-<main class="container">
-    <div class="row">
-        <div class="col-2">
-            <a href="{{ site.baseurl }}/">[ Home ]</a>
-            <article>
-                <h1>{{ post.title }}</h1>
-                <small>{% include post_date.html %}</small>
-                <p>{{ content }}</p>
-            </article>
-            {% include buttons.html %}
-        </div>
-        {% include post_sidebar.html %}
-    </div>
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+      </div>
+      {% if site.disqus.shortname %}
+        {% include disqus_comments.html %}
+      {% endif %}
+    </article>
+  </div>
 </main>
