@@ -10,9 +10,9 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-# theme                  : "minimal-mistakes-jekyll"
+theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "it-IT"
@@ -20,7 +20,7 @@ title                    : "BOLO - Buffers Overflow LOvers"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Bolo"
-description              : "We lova Buffers Overflow"
+description              : "We love Buffers Overflow"
 url                      : "https://bolonobolo.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "bolonobolo/bolonobolo.github.io"
