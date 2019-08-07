@@ -19,7 +19,7 @@ locale                   : "en-UK"
 title                    : "BOLO - Buffers Overflow LOvers"
 title_separator          : "-"
 subtitle                 : "There are so many peoples in my memory" # site tagline that appears below site title in masthead
-name                     : "Bolo"
+name                     : "bolonobolo"
 description              : "We love Buffers Overflow"
 url                      : "https://bolonobolo.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
