@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-UK"
-title                    : "Green Beans"
+title                    : "RTFM"
 title_separator          : "-"
-subtitle                 : "Phaseolus vulgaris" # site tagline that appears below site title in masthead
+subtitle                 : "If a machine is expected to be infallible, it cannot also be intelligent." # site tagline that appears below site title in masthead
 name                     : "bolonobolo"
 description              : ""
 url                      : "https://bolonobolo.github.io"
