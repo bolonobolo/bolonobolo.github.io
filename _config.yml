@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-UK"
-title                    : "Kernel Panic!"
+title                    : "Green Beans"
 title_separator          : "-"
-subtitle                 : "There are too many peoples in memory" # site tagline that appears below site title in masthead
+subtitle                 : "Phaseolus vulgaris" # site tagline that appears below site title in masthead
 name                     : "bolonobolo"
-description              : "We love Buffers Overflow"
+description              : ""
 url                      : "https://bolonobolo.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "bolonobolo/bolonobolo.github.io"
