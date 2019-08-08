@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-UK"
-title                    : "BOLO - Buffers Overflow LOvers"
+title                    : "Kernel Panic!"
 title_separator          : "-"
-subtitle                 : "There are so many peoples in my memory" # site tagline that appears below site title in masthead
+subtitle                 : "There are too many peoples in memory" # site tagline that appears below site title in masthead
 name                     : "bolonobolo"
 description              : "We love Buffers Overflow"
 url                      : "https://bolonobolo.github.io"
