@@ -109,7 +109,7 @@ analytics:
 author:
   name             : #""
   avatar           : "/assets/images/logo.jpg"
-  bio              : "OSCP - BJJ"
+  bio              : #""
   location         : "5061726d61202d204974616c79"
   email            : 
   links:
