@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "en-UK"
-title                    : "RTFM"
+title                    : "bolo"
 title_separator          : "-"
-subtitle                 : "If a machine is expected to be infallible, it cannot also be intelligent." # site tagline that appears below site title in masthead
+subtitle                 : "infosec and other stuffs" # site tagline that appears below site title in masthead
 name                     : "bolonobolo"
 description              : ""
 url                      : "https://bolonobolo.github.io"
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : #""
   avatar           : "/assets/images/logo.jpg"
-  bio              : #""
+  bio              : "OSCP"
   location         : "5061726d61202d204974616c79"
   email            : 
   links:
