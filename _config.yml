@@ -111,7 +111,7 @@ author:
   avatar           : "/assets/images/logo.jpg"
   bio              : "Vulnerability Assessor & Pentester"
   location         : "5061726d61202d204974616c79"
-  email            : "bolo@autistici.org / iambolo@protonmail.com"
+  email            : ""
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
