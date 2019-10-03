@@ -109,9 +109,9 @@ analytics:
 author:
   name             : #""
   avatar           : "/assets/images/logo.jpg"
-  bio              : "OSCP"
+  bio              : "Vulnerability Assessor & Pentester"
   location         : "5061726d61202d204974616c79"
-  email            : 
+  email            : "bolo@autistici.org / iambolo@protonmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
