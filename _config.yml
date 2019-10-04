@@ -133,7 +133,7 @@ author:
       # url: "https://instagram.com/"
     - label: "Hackthebox"
       url: "https://www.hackthebox.eu/profile/8822"
-      icon: "fas fa-fw fa-hackthebox"  
+      icon: "fas fa-fw fa-link"  
 
 # Site Footer
 footer:
