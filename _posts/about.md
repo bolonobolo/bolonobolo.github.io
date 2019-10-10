@@ -1,7 +1,6 @@
 ---
-layout: post
+layout: archive
 title: about
-date: 2019-10-10
 classes: wide
 
 --- 
