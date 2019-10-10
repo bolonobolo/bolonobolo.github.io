@@ -1,5 +1,5 @@
 ---
-layout: archive
+<!-- layout: archive -->
 title: about
 classes: wide
 
