@@ -1,5 +1,4 @@
 ---
-permalink: /about/
 layout: splash
 title: about
 classes: wide
