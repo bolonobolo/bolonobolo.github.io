@@ -21,7 +21,7 @@ title_separator          : "-"
 subtitle                 : "infosec and other stuffs" # site tagline that appears below site title in masthead
 name                     : "bolonobolo"
 description              : ""
-url                      : "https://bolonobolo.github.io"
+url                      : "https://blackcloud.me"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "bolonobolo/bolonobolo.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
