@@ -25,7 +25,7 @@ url                      : "https://blackcloud.me"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "bolonobolo/bolonobolo.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/blackcloud.png"
+logo                     : # "/assets/images/blackcloud.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 200
@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : #""
-  avatar           : "/assets/images/logo.jpg"
+  avatar           : "/assets/images/blackcloud.png"
   bio              : "Vulnerability Assessor & Pentester"
   location         : "5061726d61202d204974616c79"
   email            : 
