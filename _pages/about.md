@@ -1,6 +1,6 @@
 ---
 permalink: /about/
-layout: splash
+layout: single
 title: about
 classes: wide
 
