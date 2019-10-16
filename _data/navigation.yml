@@ -2,8 +2,10 @@
 main:
   # - title: "Quick-Start Guide"
   #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Shellcodes"
+    url: "https://blackcloud.me/shellcodes"
   - title: "About"
-    url: https://bolonobolo.github.io/about/
+    url: https://blackcloud.me/about/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
