@@ -1,5 +1,5 @@
 ---
-permalink: /shellcodes/
+permalink: /adduser/
 layout: single
 classes: wide
 

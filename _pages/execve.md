@@ -1,5 +1,5 @@
 ---
-permalink: /reverse_shell/
+permalink: /execve/
 layout: single
 classes: wide
 
