@@ -4,6 +4,7 @@ layout: single
 classes: wide
 
 --- 
+
 ```nasm
 ; Exploit Title: Linux/x86 - adduser 'User' to /etc/passwd ShellCode (74 bytes)
 ; Date: 2019-10-12
