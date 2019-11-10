@@ -84,7 +84,8 @@ _start:
 	; +0x014 InMemoryOrderModuleList : _LIST_ENTRY [ 0x2b1990 - 0x2b2d08 ]
 	;-----------------------------------------------------------------------
 	; InMemoryOrderModuleList isn't a _LIST_ENTRY type but is a LDR_DATA_TABLE_ENTRY
-	; accordingly with https://docs.microsoft.com/en-us/windows/win32/api/winternl/ns-winternl-peb_ldr_data
+	; accordingly with:
+	; https://docs.microsoft.com/en-us/windows/win32/api/winternl/ns-winternl-peb_ldr_data
 	; 1st module
 	; dt nt!_LDR_DATA_TABLE_ENTRY 0x2b1990-8
 	; BaseDllName      : _UNICODE_STRING "C:\Users\workshop\Desktop\nc.exe"
@@ -106,9 +107,10 @@ _start:
 	; +0x008 InMemoryOrderLinks : _LIST_ENTRY [ 0x2b2710 - 0x2b1d48 ]
 	;-----------------------------------------------------------------------
 	; Our main area of interest for now is which is Kernel32.dll. Every time you load a DLL, 
-	; the address gets stored at the offset of DllBase which is 0x018. 
-	; Our Start address of Linked Lists will be stored in the offset of InMemoryOrderLinks which is 0x008. 
-	; Thus the offset difference would be DllBase – InMemoryOrderLinks = 0x018 – 0x008 = 0x10. 
+	; the address gets stored at the offset of DllBase which is 0x18. 
+	; Our Start address of Linked Lists will be stored in the offset of 
+	; InMemoryOrderLinks which is 0x08. 
+	; Thus the offset difference would be DllBase – InMemoryOrderLinks = 0x18 – 0x08 = 0x10. 
 	; Hence, the offset of Kernel32.dll would be LDR + 0x10
 
 
