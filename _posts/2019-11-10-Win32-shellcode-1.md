@@ -52,7 +52,7 @@ The 3rd module is what we are seeking but we need to know one last thing. Everyt
 ## From theory to practice
 Move on on some assembly code to view things in a "more simple" perspective. Take note that the addresses used in this chunk of code are fictitious and the debug commands are from WinDbg.
 
-```asm
+```nasm
 global _start
 
 
