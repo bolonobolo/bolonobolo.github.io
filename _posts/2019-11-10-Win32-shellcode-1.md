@@ -50,7 +50,7 @@ The 3rd module is what we are seeking but we need to know one last thing. Everyt
 ```DllBase - InMemoryOrderLinks = 0x18 - 0x08 = 0x10```
 
 ## From theory to practice
-Move on on some assembly code to view things in a "more simple" perspective
+Move on on some assembly code to view things in a "more simple" perspective. Take note that the addresses used in this chunk of code are fictitious and the debug commands are from WinDbg.
 
 ```asm
 global _start
@@ -122,4 +122,23 @@ _start:
 	mov eax, [eax]				; ntdll.dll address loaded (2nd module)
 	mov eax, [eax + 0x10]		; kernel32.dll address loaded (3rd module)
 ```
+With this assembly code we can find the kernel32.dll address and store it in EAX register, so compile it and execute it in Immunity Debugger
+
+```bash
+root@eve:# cat compile_windows.sh 
+#!/bin/bash
+
+echo "[+] Assembling with NASM"
+nasm -f win32 -o $1.o $1.nasm
+
+echo "[+] Linking..."
+ld -m i386pe -o $1.exe $1.o
+
+echo "[+] Done."
+root@eve:# ./compile_windows.sh getkernel32
+[+] Assembling with NASM
+[+] Linking...
+[+] Done.
+```
+![](/assets/images/windows/x86/getkernel_0.gif)<br>
 
