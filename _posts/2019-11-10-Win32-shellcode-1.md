@@ -120,8 +120,8 @@ _start:
 	mov eax, [fs:ecx + 0x030]	; PEB loaded in eax
 	mov eax, [eax + 0x00c]		; LDR loaded in eax
 	mov eax, [eax + 0x014]		; InMemoryOrderModuleList loaded in eax
-	mov eax, [eax]			    ; program.exe address loaded in eax (1st module)
-	mov eax, [eax]			    ; ntdll.dll address loaded (2nd module)
+	mov eax, [eax]              ; program.exe address loaded in eax (1st module)
+	mov eax, [eax]              ; ntdll.dll address loaded (2nd module)
 	mov eax, [eax + 0x10]		; kernel32.dll address loaded (3rd module)
 ```
 With this assembly code we can find the kernel32.dll address and store it in EAX register, so compile it and execute it in Immunity Debugger
