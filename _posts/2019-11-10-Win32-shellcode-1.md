@@ -127,7 +127,7 @@ _start:
 With this assembly code we can find the kernel32.dll address and store it in EAX register, so compile it and execute it in Immunity Debugger
 
 ```bash
-root@eve:# cat compile_windows.sh 
+root@root:# cat compile_windows.sh 
 #!/bin/bash
 
 echo "[+] Assembling with NASM"
@@ -137,7 +137,7 @@ echo "[+] Linking..."
 ld -m i386pe -o $1.exe $1.o
 
 echo "[+] Done."
-root@eve:# ./compile_windows.sh getkernel32
+root@root:# ./compile_windows.sh getkernel32
 [+] Assembling with NASM
 [+] Linking...
 [+] Done.
