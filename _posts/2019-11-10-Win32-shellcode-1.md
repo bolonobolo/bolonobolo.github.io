@@ -59,7 +59,7 @@ global _start
 section .text
 _start: 
 
-	;	PEB is located at offset 0x030 from the main the File Segment register
+	;   PEB is located at offset 0x030 from the main the File Segment register
 	;   LDR is located at offset PEB + 0x00C
 	;   InMemoryOrderModuleList is located at offset LDR + 0x014
 	;   First module Entry is the exe itself
