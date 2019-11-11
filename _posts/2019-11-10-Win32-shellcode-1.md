@@ -174,3 +174,42 @@ getAddressofName:
 
 	; ESI = RVAs
 ```
+
+## Optimize the code
+Now we have the basis for our shellcode but we can optimize a little bit the code to reduce the lenght.<br>
+Instead of using two times the ```mox eax, eax``` instruction to load the 2nd and 3rd module we can use the ```lodsd```. From Intel manual the ```lodsd``` instruction is describe as below:
+
+> Loads a byte, word, or doubleword from the source operand into the AL, AX, or EAX register, respectively. The source operand is a memory location, the address of which is read from the DS:ESI or the DS:SI registers (depending on the address-size attribute of the instruction, 32 or 16, respectively). The DS segment may be overridden with a segment override prefix.<br>
+This change can save us 4 bytes for every ```mov``` instruction
+
+```nasm
+global _start
+
+section .text
+_start:
+
+
+getkernel32:
+	xor ecx, ecx				; zeroing register ECX
+	mul ecx						; zeroing register EAX EDX
+	mov eax, [fs:ecx + 0x30]	; PEB loaded in eax
+	mov eax, [eax + 0x0c]		; LDR loaded in eax
+	mov esi, [eax + 0x14]		; InMemoryOrderModuleList loaded in esi
+	lodsd						; program.exe address loaded in eax (1st module)
+	xchg esi, eax				
+	lodsd						; ntdll.dll address loaded (2nd module)
+	mov ebx, [eax + 0x10]		; kernel32.dll address loaded in ebx (3rd module)
+
+	; EBX = base of kernel32.dll address
+
+getIOH:
+	mov edx, [ebx + 0x3c]		; load e_lfanew address in ebx
+	add edx, ebx				
+	mov edx, [edx + 0x78]		; load data directory
+	add edx, ebx
+	mov esi, [edx + 0x20]		; load "address of name"
+	add esi, ebx
+	xor ecx, ecx
+
+	; ESI = RVAs
+```
