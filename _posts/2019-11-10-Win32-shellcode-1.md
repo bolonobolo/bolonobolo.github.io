@@ -15,7 +15,7 @@ tags:
 ![](/assets/images/shell.png)<br>
 
 ## Introduction
-Since now, we have talked about shellcoding on Linux. Now we move on a more jiucy target: Windows OS. Writing shellcode for Windows isn't linear and simple like Linux. First of all Windows doesn't has syscall but instead we must use kernel API to call functions for what we need to do. Second and most important the addresses of this function are not static and may change from version to version of Windows kernel release.
+Since now, we have talked about shellcoding on Linux. Now we move on a more juicy target: Windows OS. Writing shellcode for Windows isn't linear and simple like Linux. First of all Windows doesn't has syscall but instead we must use kernel API to call functions for what we need to do. Second and most important the addresses of this function are not static and may change from version to version of Windows kernel release.
 There are a lot of well done and very helpfull dcoumentation out there, covering the Win32 shellcode. Let me list some of this documentation from which we took inspiration and from we took some pieces of code to understand how to make some shellcodes:
 - [This amazing book](https://nostarch.com/malware) help me a lot understand how Win32 kernel API works
 - [The amazing h0mbre blog](https://h0mbre.github.io/Babys-First-Shellcode/) 
