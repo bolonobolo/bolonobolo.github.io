@@ -301,10 +301,10 @@ c:\MinGW\bin>gcc shellcode.c -o shellcode
 ```
 
 Windows 7 (x86)
-![](/assets/images/windows/x86/getkernel_0.gif)<br>
+![](/assets/images/windows/x86/getcalc_0.gif)<br>
 
 and Windows 10 (x86)
 
-![](/assets/images/windows/x86/getkernel_1.gif)<br>
+![](/assets/images/windows/x86/getcalc_1.gif)<br>
 
 The lenght is 176 bytes and is NULL free 
