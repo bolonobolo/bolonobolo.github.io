@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Win32 Shellcode: Intro
+title: Win32 Shellcode - Intro
 date: 2019-11-10
 classes: wide
 header:

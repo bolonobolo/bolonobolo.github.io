@@ -1,6 +1,6 @@
 ---
 layout: single
-title: Win32 Shellcode: Spawn the Calc
+title: Win32 Shellcode - Spawn the Calc
 date: 2019-11-11
 classes: wide
 header:
