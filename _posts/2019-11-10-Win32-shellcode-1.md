@@ -144,3 +144,32 @@ root@root:# ./compile_windows.sh getkernel32
 ```
 ![](/assets/images/windows/x86/getkernel_0.gif)<br>
 
+Once we found the base address for kernel32.dll , we must parse it to find exported symbols. As with finding the location of kernel32.dll, this process involves following several structures in memory. PE files use relative virtual addresses (RVAs) when defining locations within a file. These addresses can be thought of as offsets within the PE image in memory, so the PE image base address must be added to each RVA to turn it into a valid pointer. The export data is stored in IMAGE_EXPORT_DIRECTORY . An RVA to this is stored in the array of IMAGE_DATA_DIRECTORY structures at the end of the IMAGE_OPTIONAL_HEADER . The location of the IMAGE_DATA_DIRECTORY array depends on whether the PE file is for a 32-bit application or a 64-bit application. Typical shellcode assumes it is running on a 32-bit platform, so it knows at compile time that the correct offset from the PE signature to the directory array is as follows:<br>
+
+```sizeof(PE_Signature) + sizeof(IMAGE_FILE_HEADER) + sizeof(IMAGE_OPTIONAL_HEADER) = 120 bytes```
+
+```AddressOfFunctions``` is an array of RVAs that points to the actual export functions. It is indexed by an export ordinal (an alternative way of finding an exported symbol). The shellcode needs to map the export name to the ordinal in order to use this array, and it does so using the ```AddressOfNames``` and ```AddressOfNameOrdinals``` arrays. These two arrays exist in parallel. They have the same number of entries, and equivalent indices into these arrays are directly related. ```AddressOfNames``` is an array of 32-bit RVAs that point to the strings of symbol names. ```AddressOfNameOrdinals``` is an array of 16-bit ordinals. For a given index idx into these arrays, the symbol at ```AddressOfNames```[idx] has the export ordinal value at ```AddressOfNameOrdinals[idx]```. The ```AddressOfNames``` array is sorted alphabetically so that a binary search can quickly find a specific string, though most shellcode simply performs a linear search starting at the beginning of the array. To find the export address of a symbol, follow these steps:
+
+1. The ```AddressOfNames``` array is sorted alphabetically so that a binary search can quickly find a specific string, though most shellcode simply performs a linear search starting at the at each char* entry, and perform a string comparison against the desired symbol until a match is found. Call this index into ```AddressOfNames``` iName
+2. Index into the ```AddressOfNameOrdinals``` array using iName . The value retrieved is the value iOrdinal
+3. Use iOrdinal to index into the AddressOfFunctions array. The value retrieved is the RVA of the exported symbol. Return this value to the requester.
+
+The MS-DOS header is ```0x40``` bytes and the last 4 bytes are the ```e_lfanew``` pointer. So from base we have to add 60 bytes (```0x3c```) to point at the ```e_lfanew``` pointer. At offset ```0x78``` of the PE header we can find the "Data Directory" for the exports.
+
+```0x78 = 120 bytes = sizeof(PE_Signature) + sizeof(IMAGE_FILE_HEADER) + sizeof(IMAGE_OPTIONAL_HEADER)```
+
+The export data is stored in ```IMAGE_EXPORT_DIRECTORY``` where we can find the offset of ```AddressOfNames``` at offset ```0x20``` 
+
+```nasm
+
+getAddressofName:
+	mov edx, [ebx + 0x3c]		; load e_lfanew address in ebx
+	add edx, ebx				
+	mov edx, [edx + 0x78]		; load data directory
+	add edx, ebx
+	mov esi, [edx + 0x20]		; load "address of name"
+	add esi, ebx
+	xor ecx, ecx
+
+	; ESI = RVAs
+```
