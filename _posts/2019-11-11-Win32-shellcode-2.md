@@ -15,7 +15,7 @@ tags:
 ![](/assets/images/shell.png)<br>
 
 ## Introduction
-In the last post we built what we need to search function addresses in the memory. Now it's time to find this addreses and use they to spawn the Calculator.
+[In the last post](https://blackcloud.me/Win32-shellcode-1/) we built what we need to search function addresses in the memory. Now it's time to find this addreses and use they to spawn the Calculator.
 First we need to find the ```GetProcAddress``` function, this is the default function we will use to find all others function we need. The basic way to do that is to scroll through the entire array of function, comparing the name of the function we are searching with the name of every element of function array. So getting in deep with this problem we have to split the name ```GetProcAddress``` in 3 elements each of 4 bytes. 
 
 - 0x50746547 = GetP
