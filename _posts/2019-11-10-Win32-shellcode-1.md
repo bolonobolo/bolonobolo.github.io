@@ -161,14 +161,15 @@ The MS-DOS header is ```0x40``` bytes and the last 4 bytes are the ```e_lfanew``
 The export data is stored in ```IMAGE_EXPORT_DIRECTORY``` where we can find the offset of ```AddressOfNames``` at offset ```0x20``` 
 
 ```nasm
+    ; EAX = base of kernel32.dll address
 
 getAddressofName:
-	mov edx, [ebx + 0x3c]		; load e_lfanew address in ebx
-	add edx, ebx				
+	mov edx, [eax + 0x3c]		; load e_lfanew address in eax
+	add edx, eax				
 	mov edx, [edx + 0x78]		; load data directory
-	add edx, ebx
+	add edx, eax
 	mov esi, [edx + 0x20]		; load "address of name"
-	add esi, ebx
+	add esi, eax
 	xor ecx, ecx
 
 	; ESI = RVAs
