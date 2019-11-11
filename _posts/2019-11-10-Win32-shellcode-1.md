@@ -210,7 +210,6 @@ getAddressofName:
 	add edx, ebx
 	mov esi, [edx + 0x20]       ; load "address of name"
 	add esi, ebx
-	xor ecx, ecx
 
 	; ESI = RVAs
 ```
