@@ -181,13 +181,14 @@ getCreateProcessA:
 	call edx                        ; call getprocAddress
 
 zero_memory:
-	xor ecx, ecx                ; zero out counter register
+    xor ecx, ecx                ; zero out counter register
     mov cl, 0xff                ; we'll loop 255 times (0xff)
     xor edi, edi                ; edi now 0x00000000
 
     zero_loop:
-    push edi                    ; place 0x00000000 on stack 255 times as a way to 'zero memory' 
-    loop zero_loop
+    push edi                    ; place 0x00000000 on stack 255 times 
+    loop zero_loop              ; as a way to 'zero memory' 
+    
 
 getcalc:
 	push 0x636c6163             ; 'calc'
