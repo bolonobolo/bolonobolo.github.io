@@ -202,7 +202,7 @@ getkernel32:
 
 	; EBX = base of kernel32.dll address
 
-getIOH:
+getAddressofName:
 	mov edx, [ebx + 0x3c]		; load e_lfanew address in ebx
 	add edx, ebx				
 	mov edx, [edx + 0x78]		; load data directory
