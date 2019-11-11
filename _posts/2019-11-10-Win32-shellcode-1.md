@@ -220,4 +220,4 @@ From here we have several paths we can walk to execute what we want to execute. 
 
 The first choice is based on the concept to spawn an exe using directly the CreateProcessA function, but honestly we understood how it works to a certain extent and we don't want to talk of concepts that we didn't understand deeply.<br>
 So we choosed the second method, basically use the GetProcAddress to search and obtain the functions address needed for our purposes.<br>
-In the next post we show how this methos works.
+In the next post we show how this method works.
