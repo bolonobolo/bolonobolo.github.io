@@ -191,7 +191,7 @@ zero_memory:
     
 
 getcalc:
-	push 0x636c6163             ; 'calc'
+    push 0x636c6163             ; 'calc'
     mov ecx, esp                ; stack pointer to 'calc'
 
     ; Registers situation at this point
