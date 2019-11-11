@@ -307,4 +307,4 @@ and Windows 10 (x86)
 
 ![](/assets/images/windows/x86/getcalc_1.gif)<br>
 
-The lenght is 176 bytes and is NULL free 
+The length is 176 bytes and is NULL free 

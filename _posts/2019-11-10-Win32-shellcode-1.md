@@ -176,7 +176,7 @@ getAddressofName:
 ```
 
 ## Optimize the code
-Now we have the basis for our shellcode but we can optimize a little bit the code to reduce the lenght.<br>
+Now we have the basis for our shellcode but we can optimize a little bit the code to reduce the length.<br>
 Instead of using two times the ```mox eax, eax``` instruction to load the 2nd and 3rd module we can use the ```lodsd```. From Intel manual the ```lodsd``` instruction is describe as below:
 
 > Loads a byte, word, or doubleword from the source operand into the AL, AX, or EAX register, respectively. The source operand is a memory location, the address of which is read from the DS:ESI or the DS:SI registers (depending on the address-size attribute of the instruction, 32 or 16, respectively). The DS segment may be overridden with a segment override prefix.<br>
