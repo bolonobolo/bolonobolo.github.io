@@ -220,4 +220,4 @@ From here we have several paths we can walk to execute what we want to execute. 
 
 The first choice is based on the concept to spawn an exe using directly the CreateProcessA function, but this method makes the exit from a process more difficult.<br>
 So we choosed the second method, basically it uses the GetProcAddress to search and obtain the functions address needed for our purposes.<br>
-In the next post we show how this method works.
+[In the next post](https://blackcloud.me/Win32-shellcode-2/) we'll show how this method works.
