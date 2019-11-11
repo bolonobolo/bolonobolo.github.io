@@ -24,6 +24,7 @@ There are a lot of well done and very helpfull dcoumentation out there, covering
 - [Shellcoding for Linux and Windows Tutorial](http://www.vividmachines.com/shellcode/shellcode.html#ws) by [Steve Hanna](https://twitter.com/lestevehanna)
 - [A good paper book](http://hick.org/code/skape/papers/win32-shellcode.pdf)
 - [Windows x86 MessageBox shellcode](https://marcosvalle.github.io/re/exploit/2019/01/19/messagebox-shellcode.html) by [MValle](https://twitter.com/_mvalle_) 
+- [The PacketStorm Calc Shellcode](https://packetstormsecurity.com/files/102847/All-Windows-Null-Free-CreateProcessA-Calc-Shellcode.html)
 
 A big thank to all them for their fantastic works.<br>
 Now let's start from theory. As said we can't work directly with syscall, but we have to find the functions addresses loaded in memory. To find the addresses we first find the "handbook" that contains the pointers to some basic functions which are necessary to find what we need. There are basically 2 methods to find this addresses:
