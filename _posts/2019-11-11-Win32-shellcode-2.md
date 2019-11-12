@@ -308,4 +308,4 @@ and Windows 10 (x86)
 ![](/assets/images/windows/x86/getcalc_1.gif)<br>
 
 The length is 176 bytes and is NULL free.<br>
-In the next post we will spawn a MessageBox with a custom title and message.
+[In the next post](https://blackcloud.me/Win32-shellcode-3/) we will spawn a MessageBox with a custom title and message.
