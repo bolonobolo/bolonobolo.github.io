@@ -125,10 +125,10 @@ MessageBoxA:
 	add esp, 0x010                  ; clean the stack
 	xor edx, edx
 	xor ecx, ecx
-	push edx 						
-	push 'Pwnd'
-	mov edi, esp
-	push edx
+    push edx 						
+    push 'Pwnd'
+    mov edi, esp
+    push edx
     push 'Yess'
     mov ecx, esp
 	push edx                        ; hWnd = NULL
