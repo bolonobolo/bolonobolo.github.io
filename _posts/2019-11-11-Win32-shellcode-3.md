@@ -15,7 +15,7 @@ tags:
 ![](/assets/images/shell.png)<br>
 
 ## Introduction
-In the last post we spawned the Calculator on Windows x86. Now we'll move on a more complicated object. We want to spawn a MessageBox with custom title and text. In this case the MesssageBox function is in the User32.dll library so we need to intruduce a new method: loading a different dll, searching the MessageBox function inside the library and use the with the right parameters.
+[In the last post](https://blackcloud.me/Win32-shellcode-2/) we spawned the Calculator on Windows x86. Now we'll move on a more complicated object. We want to spawn a MessageBox with custom title and text. In this case the MesssageBox function is in the User32.dll library so we need to intruduce a new method: loading a different dll, searching the MessageBox function inside the library and use the with the right parameters.
 For our puproses we need to introdice a new function called LoadLibraryA that help us loading the new User32.dll.<br>
 The others concepts are more or less the same of the past shellcode
 
