@@ -242,3 +242,13 @@ and Windows 10 (x86)
 
 The length is 223 bytes and is NULL free.<br>
 In the next post we will spawn a Reverse shell.
+
+## References
+- [This amazing book](https://nostarch.com/malware) help me a lot understand how Win32 kernel API works
+- [The amazing h0mbre blog](https://h0mbre.github.io/Babys-First-Shellcode/) 
+- [Introduction to Windows Shellcode Development – Part 3](https://securitycafe.ro/2016/02/15/introduction-to-windows-shellcode-development-part-3/) by [@NytroRST](https://twitter.com/NytroRST/)
+- [Windows Shellcoding x86 – Hunting Kernel32.dll – Part 1](https://0xdarkvortex.dev/index.php/2019/03/18/windows-shellcoding-x86-hunting-kernel32-dll-part-1/) by [@NinjaParanoid](https://twitter.com/NinjaParanoid)
+- [Shellcoding for Linux and Windows Tutorial](http://www.vividmachines.com/shellcode/shellcode.html#ws) by [Steve Hanna](https://twitter.com/lestevehanna)
+- [A good paper book](http://hick.org/code/skape/papers/win32-shellcode.pdf)
+- [Windows x86 MessageBox shellcode](https://marcosvalle.github.io/re/exploit/2019/01/19/messagebox-shellcode.html) by [@MValle](https://twitter.com/_mvalle_) 
+- [The PacketStorm Calc Shellcode](https://packetstormsecurity.com/files/102847/All-Windows-Null-Free-CreateProcessA-Calc-Shellcode.html)
