@@ -27,7 +27,7 @@ The process can be resumed in this steps:
 4. Use ```LoadLibraryA``` to find ```ws2_32.dll``` address and store it somewhere for future purposes
 5. Find and call the ```WSAStartup``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-wsastartup)
 6. Find and call the ```WSASocketA``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-wsasocketa)
-7. Find and call the ```Connect``` function, [MSDN documentation here]()
+7. Find and call the ```Connect``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-connect)
 8. Find the ```CreateProcessA``` function using the ```GetProcAddress``` and the ```kerne32.dll``` handler previously stored
 9. Call a ```cmd.exe``` Process on the socket opened with ```Connect``` using the ```CreateProcessA``` address
 10. Call the ```ExitProcess``` function using the ```GetProcAddress``` and the ```kerne32.dll``` handler previously stored
