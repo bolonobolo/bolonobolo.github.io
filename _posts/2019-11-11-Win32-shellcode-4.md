@@ -48,7 +48,7 @@ Windows Sockets version 2.2 is supported on Windows Server 2008, Windows Vista, 
 Windows 95 with the Windows Socket 2 Update. Applications on these platforms should normally request Winsock 2.2 by setting the wVersionRequested parameter accordingly.
 On Windows 95 and versions of Windows NT 3.51 and earlier, Windows Sockets version 1.1 is the highest version of the Windows Sockets specification supported. <br>
 
-You can read Marcos’ blogpost for an explanation.<br>
+You can read Marcos’ blogpost for a deep explanation.<br>
 The [WSAData](https://docs.microsoft.com/en-us/windows/win32/api/winsock/ns-winsock-wsadata) structure is well defined in manual.<br>
 If successful, the WSAStartup function returns zero in EAX. Otherwise, it returns error codes.
 
