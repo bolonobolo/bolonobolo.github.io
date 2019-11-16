@@ -79,7 +79,7 @@ int WSAAPI connect(
   int            namelen
 );
 ```
-Parameters
+Parameters:<br>
 ```s``` is a descriptor identifying an unconnected socket.<br>
 ```name``` is a pointer to the sockaddr structure to which the connection should be established.<br>
 ```namelen``` is the length, in bytes, of the sockaddr structure pointed to by the name parameter.<br>
