@@ -15,7 +15,7 @@ tags:
 ![](/assets/images/shell.png)<br>
 
 ## Introduction
-[In the last post](https://blackcloud.me/Win32-shellcode-3/) we spawned a custom MessagBox on Windows x86. Now we'll move on to all we want to do, a reverse shell. This type o command need a similar process like MessageBox, we need to load a different dll, the ```ws2_32.dll``` library so we need to reuse the ```LoadLibraryA``` searching method and use it to find the functions needed, with the right data structures as parameters.<br>
+[In the last post](https://blackcloud.me/Win32-shellcode-3/) we spawned a custom MessagBox on Windows x86. Now we'll move on to all of us want to do, a reverse shell. This type of command need a process like MessageBox but we need to load a different dll, the ```ws2_32.dll``` library so we need to reuse the ```LoadLibraryA``` searching method and use it to find the functions needed, with the right data structures as parameters.<br>
 The concepts are more or less the same of the past shellcode.<br>
 
 ## The Workflow
