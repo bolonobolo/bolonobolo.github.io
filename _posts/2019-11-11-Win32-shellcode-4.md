@@ -24,7 +24,7 @@ The process can be resumed in this steps:
 1. Get ```kernel32.dll``` and store its address somewhere for future purposes
 2. Find the ```GetProcAddress``` function address and store it somewhere for future purposes 
 3. Find the ```LoadLibraryA``` address 
-4. Use the last to find ```ws2_32.dll``` address and store it somewhere for future purposes
+4. Use ```LoadLibraryA``` last to find ```ws2_32.dll``` address and store it somewhere for future purposes
 5. Find and call the ```WSAStartup``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-wsastartup)
 6. Find and call the ```WSASocketA``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-wsasocketa)
 7. Find and call the ```Connect``` function, [MSDN documentation here]()
