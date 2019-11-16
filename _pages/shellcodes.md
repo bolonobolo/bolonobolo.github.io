@@ -15,3 +15,6 @@ Some codes published here are also on [Exploit-DB](https://www.exploit-db.com/sh
 - [Linux/x86 - NOT + XOR-N + Random Encoded /bin/sh Shellcode (132 bytes)](https://blackcloud.me/encoders)
 
 ## Windows
+- [Windows x86 - spawn calc.exe Win7/10 (176 bytes)](https://blackcloud.me/win_calc)
+- [Windows x86 - spawn custom MessageBox Win7/10 (223 bytes)](https://blackcloud.me/win_messagebox)
+- [Windows x86 - spawn reverse shell Win7/10 (387 bytes)](https://blackcloud.me/win_reverse_shell)
