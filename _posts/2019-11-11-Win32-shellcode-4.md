@@ -25,12 +25,12 @@ The process can be resumed in this steps:
 2. Find the ```GetProcAddress``` function address and store it somewhere for future purposes 
 3. Find the ```LoadLibraryA``` address 
 4. Use ```LoadLibraryA``` to find ```ws2_32.dll``` address and store it somewhere for future purposes
-5. Find and call the ```WSAStartup``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-wsastartup)
-6. Find and call the ```WSASocketA``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-wsasocketa)
-7. Find and call the ```Connect``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-connect)
+5. Use ```GetProcAddress``` and ```ws2_32.dll``` to find and call the ```WSAStartup``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-wsastartup)
+6. Use ```GetProcAddress``` and ```ws2_32.dll``` to find and call the ```WSASocketA``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-wsasocketa)
+7. Use ```GetProcAddress``` and ```ws2_32.dll``` to find and call the ```Connect``` function, [MSDN documentation here](https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-connect)
 8. Find the ```CreateProcessA``` function using the ```GetProcAddress``` and the ```kerne32.dll``` handler previously stored
 9. Call a ```cmd.exe``` Process on the socket opened with ```Connect``` using the ```CreateProcessA``` address
-10. Call the ```ExitProcess``` function using the ```GetProcAddress``` and the ```kerne32.dll``` handler previously stored
+10. Call the ```ExitProcess``` function using the ```GetProcAddress``` and the ```kerne32.dll``` handler previously stored<br>
 As you can see there a lot of stuffs to do, and there are also some considerations to do about data structures needed
 
 ### WSAStartup
@@ -46,7 +46,7 @@ int WSAStartup(
 To get full access to the new syntax of a higher version of the Windows Sockets specification, the application must negotiate for this higher version. In this case, the wVersionRequested parameter should be set to request version 2.2. [...]
 Windows Sockets version 2.2 is supported on Windows Server 2008, Windows Vista, Windows Server 2003, Windows XP, Windows 2000, Windows NT 4.0 with Service Pack 4 (SP4) and later, Windows Me, Windows 98, and Windows 95 OSR2. Windows Sockets version 2.2 is also supported on
 Windows 95 with the Windows Socket 2 Update. Applications on these platforms should normally request Winsock 2.2 by setting the wVersionRequested parameter accordingly.
-On Windows 95 and versions of Windows NT 3.51 and earlier, Windows Sockets version 1.1 is the highest version of the Windows Sockets specification supported. <br>
+On Windows 95 and versions of Windows NT 3.51 and earlier, Windows Sockets version 1.1 is the highest version of the Windows Sockets specification supported.<br>
 
 You can read Marco's blogpost for a deep explanation.<br>
 The [WSAData](https://docs.microsoft.com/en-us/windows/win32/api/winsock/ns-winsock-wsadata) structure is well defined in manual.<br>
