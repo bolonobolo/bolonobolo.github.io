@@ -11,6 +11,7 @@ tags:
   - Windows
   - Shellcode
   - x86
+  - Reverse shell
 --- 
 ![](/assets/images/shell.png)<br>
 
