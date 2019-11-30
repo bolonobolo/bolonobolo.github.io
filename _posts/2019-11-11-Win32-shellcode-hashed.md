@@ -128,8 +128,8 @@ First thing we choosed to load the ```hashString``` and ```findSymbolByHash``` a
 This is the shellcode tested on both x86 Win 7 and Win 10. It works on both but assuming the fatct that:
 >The particular algorithm has become commonly used due to its inclusion in [Metasploit](https://github.com/rapid7/metasploit-framework/blob/master/external/source/shellcode/windows/x86/src/block/block_api.asm), but variations that use different rotation amounts and hash sizes are sometimes seen.<br>
 
-could makes our shellcode marked as malicious by Windows Defender AV and others AV and DS/IPS/ATP agents :)
-[Fireeye](https://www.fireeye.com/blog/threat-research/2012/11/precalculated-string-hashes-reverse-engineering-shellcode.html)
+could makes our shellcode marked as malicious by Windows Defender AV and others AV and IDS/IPS/ATP agents :)
+You could read an interesting article on [Fireeye](https://www.fireeye.com/blog/threat-research/2012/11/precalculated-string-hashes-reverse-engineering-shellcode.html) blog, about this argument.
 
 ```nasm
 global _start
