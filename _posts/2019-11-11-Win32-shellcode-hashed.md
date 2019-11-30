@@ -43,7 +43,7 @@ hash_done:
     ret                         ; use ret against retn 8 that produce NULL bytes
 ```
 This function calculates a 32-bit DWORD hash value of the string pointer argument. The EDI register is treated as the current hash value, and is initialized to zero. Each byte of the input string is loaded via the lodsb instruction at ```lodsb```. If the byte is not NULL, the current hash is rotated right by 13 ```0x0d``` in hex, and the current byte is added into the hash. This hash is returned in EAX so that its caller can compare the result with the value compiled into the code.<br>
-This PE parsing ability instead of ```GetProcAddress``` approach has the additional benefit of making reverse-engineering of the shellcode more difficult. The hash values hide the API calls used from casual inspection.
+This PE parsing ability instead of ```GetProcAddress``` approach has the additional benefit of making reverse-engineering of the shellcode more difficult. The hash values hide the API calls used from casual inspection. 
 
 ```nasm
 findSymbolByHash:
@@ -121,9 +121,10 @@ if len(sys.argv) == 2:
 if __name__ == '__main__':
 	main()
 ```
-The original one makes a right rotation but we can also use a left rotation or add a function that makes shift instad od rotation. It's manadatory that all changes made on the script must be done also in the ASM shellcode. 
+The original one makes a right rotation but we can also use a left rotation or can use shift instead of rotation. It's manadatory that all changes made on the script must be done also in the ASM shellcode. 
 
 ## The shellcode
+First thing we choosed to load the ```hashString``` and ```findSymbolByHash``` addresses respectively in ```EBP``` and ```EDI``` registers toavoid NULL bytes produced by calling directly this function during the process, secondly by using the PE parsing, we choosed to find and store all the necessary functions addresses at the begin of our shellcode and use ```ESI``` register like a base offset for our saved addresses.<br>
 This is the shellcode tested on both x86 Win 7 and Win 10. It works on both but assuming the fatct that:
 >The particular algorithm has become commonly used due to its inclusion in [Metasploit](https://github.com/rapid7/metasploit-framework/blob/master/external/source/shellcode/windows/x86/src/block/block_api.asm), but variations that use different rotation amounts and hash sizes are sometimes seen.<br>
 
