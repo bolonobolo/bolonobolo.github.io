@@ -124,7 +124,7 @@ if __name__ == '__main__':
 The original one makes a right rotation but we can also use a left rotation or can use shift instead of rotation. It's manadatory that all changes made on the script must be done also in the ASM shellcode. 
 
 ## The shellcode
-First thing we choosed to load the ```hashString``` and ```findSymbolByHash``` addresses respectively in ```EBP``` and ```EDI``` registers toavoid NULL bytes produced by calling directly this function during the process, secondly by using the PE parsing, we choosed to find and store all the necessary functions addresses at the begin of our shellcode and use ```ESI``` register like a base offset for our saved addresses.<br>
+First thing we choosed to load the ```hashString``` and ```findSymbolByHash``` addresses respectively in ```EBP``` and ```EDI``` registers to avoid NULL bytes produced by calling directly this function during the process, secondly by using the PE parsing, we choosed to find and store all the necessary functions addresses at the begin of our shellcode and use ```ESI``` register like a base offset for our saved addresses.<br>
 Last thing, we used a lot of code of previous shellcode, probably some pieces could be optimized.<br>
 The shellcode works on both x86 Win 7 and Win 10 but assuming the fact:
 >The particular algorithm has become commonly used due to its inclusion in [Metasploit](https://github.com/rapid7/metasploit-framework/blob/master/external/source/shellcode/windows/x86/src/block/block_api.asm), but variations that use different rotation amounts and hash sizes are sometimes seen.<br>
