@@ -14,7 +14,6 @@ classes: wide
 ; Tested on: Linux x86
 ; CVE: N/A
 
-/*
 global _start			
 
 section .text
@@ -32,8 +31,6 @@ _start:
 	lea ebx, [esp]          ; load stack pointer to ebx
 	mov al, 0xb             ; load execve in eax
 	int 0x80                ; execute
-
-*/
 ```
 ```C
 #include<stdio.h>
