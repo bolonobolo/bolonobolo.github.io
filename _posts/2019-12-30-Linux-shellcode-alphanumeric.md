@@ -17,10 +17,13 @@ tags:
 ![](/assets/images/shell.png)<br>
 
 ## Intruduction
-Back to shellcode argument, today we will speak about alphanumeric shellcode. This arguemnt was suggested to me from @naualito, some weeks ago and i have to admint it took me crazy sometimes but it was also a lot fun. The scope of the task is to create a shellcode completely of alphanumeric characters. The reason of this madness is because
+Back to shellcode argument, today we will speak about alphanumeric shellcode. This arguemnt was suggested to me from @nahualito, some weeks ago and i have to admint it took me crazy sometimes but it was also a lot fun. The scope of the task is to create a shellcode completely of alphanumeric characters. The reason of this madness is because
 > there are several filtering schemes out there being employed by programs that only allow alphanumeric characters to be passed into their buffer<br>
+
 also
+
 > (Alphanumerics) shellcode bypasses many character filters and is somewhat easy to learn due to the fact that many ascii instructions are only one or two byte instructions. The smaller the instructions, the more easily obfuscated and randomized they are. During many buffer overflows the buffer is limited to a very small writeable segment of memory, so many times it is important to utilize the smallest possible combination of opcodes. In other cases, more buffer space is available and things like ascii art shellcode are more plausible.<br>
+
 So we can resume the "Art" of create Alphanumeric Shellcode like an extreme polymorphism that allow us to bypass IDS/IPS/AV agents and this is, at the end, our scope.
 
 ## Allowed instructions
