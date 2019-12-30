@@ -98,27 +98,15 @@ The term "alphanumeric" speaks itself, we want to build a shellcode but only wit
 
 What can we directly deduct of all this?
 
-- NO "MOV" INSTRUCTIONS:
- => we need to find another way to manipulate our data.
-- NO INTERESTING ARITHMETIC INSTRUCTIONS ("ADD","SUB",...):
- => we can only use DEC and INC.
- => we can't use INC with the EAX register.
-- THE "XOR" INSTRUCTION:
- => we can use XOR with bytes and doublewords.
- => very interesting for basic crypto stuff. 
-- "PUSH"/"POP"/"POPAD" INSTRUCTIONS:
- => we can push bytes and doublewords directly on the stack.
- => we can only use POP with the EAX,ECX and EDX registers.
- => it seems we're going to play again with the stack.
-- THE "O16" OPERAND SIZE OVERRIDE:
- => we can also achieve 16 bits manipulations with this instruction
-    prefix.
-- "JMP" AND "CMP" INSTRUCTIONS:
- => we can realize some comparisons.
- => we can't directly use constant values with CMP.
+- no "mov" instructions: we need to find another way to manipulate our data.
+- no interesting arithmetic instructions ("add","sub",...): we can only use DEC and INC and we can't use INC with the EAX register.
+- the "xor" instruction: we can use XOR with bytes and doublewords very interesting for basic crypto stuff. 
+- "PUSH"/"POP"/"POPAD" INSTRUCTIONS: we can push bytes and doublewords directly on the stack and we can only use POP with the EAX,ECX and EDX registers, it seems we're going to play again with the stack.
+- the "o16" operand size override: we can also achieve 16 bits manipulations with this instruction prefix.
+- "jmp" and "cmp" instructions: we can realize some comparisons but we can't directly use constant values with CMP.
 
 
-Not so much ah?! Ah and obviuosly don't forget that operands of these instructions (</r>, <imm8>,
+Not so much eh?! Ah and obviuosly don't forget that operands of these instructions (</r>, <imm8>,
 <imm32>, <disp8> and <disp32>) must also remain alphanumeric. It may make our task once again more complicated...
 
 ## First alphanumeric instructions
