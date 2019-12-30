@@ -106,7 +106,7 @@ What can we directly deduct of all this?
 - "jmp" and "cmp" instructions: we can realize some comparisons but we can't directly use constant values with CMP.
 
 
-Not so much eh?! Ah and obviuosly don't forget that operands of these instructions (/r, imm8, imm32, disp8 and disp32) must also remain alphanumeric. It may make our task once again more complicated...
+Not so much eh?! Ah and obviuosly don't forget that operands of these instructions (/r, imm8, imm32, disp8 and disp32) must also remain alphanumeric. It may make our task once again more complicated...<br>
 
 ## First alphanumeric instructions
 No panic, we can obtain a shellcode with a little of fantasy.<br>
