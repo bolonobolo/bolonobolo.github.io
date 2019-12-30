@@ -15,7 +15,7 @@ tags:
 --- 
 ![](/assets/images/shell.png)<br>
 
-### Introduction
+## Introduction
 In the last post we wrote a reverse shell using ```LoadLibraryA``` and ```GetProcAddress``` to find a word defined function address in memory. This example is a straight forward process to obtain a shellcode for our porposes but the algorithm just discussed has a weakness: It performs a strcmp against each export name until it finds the correct one. This requires that the full name of each API function the shellcode uses be included as an ASCII string. When the size of the shellcode is constrained, these strings could push the size of the shellcode over the limit.<br>
 A common way to address this problem is to calculate a hash of each symbol string and compare the result with a precomputed value stored in the shellcode. The hash function does not need to be sophisticated; it only needs to guarantee that within each DLL used by the shellcode, the hashes that the shellcode uses are unique. Hash collisions between symbols in different DLLs and between symbols the shellcode does not use are fine. The most common hash function is the 32-bit rotate-right-additive hash.<br>
 In this post we'll using hashed name to find functions. 
