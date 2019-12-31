@@ -22,7 +22,7 @@ Back to shellcode argument, today we will speak about alphanumeric shellcode. Th
 
 also
 
-> (Alphanumerics) shellcode bypasses many character filters and is somewhat easy to learn due to the fact that many ascii instructions are only one or two byte instructions. The smaller the instructions, the more easily obfuscated and randomized they are. During many buffer overflows the buffer is limited to a very small writeable segment of memory, so many times it is important to utilize the smallest possible combination of opcodes. In other cases, more buffer space is available and things like ascii art shellcode are more plausible.<br>
+> (Alphanumeric) shellcode bypasses many character filters and is somewhat easy to learn due to the fact that many ascii instructions are only one or two byte instructions. The smaller the instructions, the more easily obfuscated and randomized they are. During many buffer overflows the buffer is limited to a very small writeable segment of memory, so many times it is important to utilize the smallest possible combination of opcodes. In other cases, more buffer space is available and things like ascii art shellcode are more plausible.<br>
 
 So we can resume the "Art" of create Alphanumeric Shellcode like an extreme polymorphism that allow us to bypass IDS/IPS/AV agents and this is, at the end, our scope.
 
