@@ -365,6 +365,6 @@ os.system("./bof " + z)
 
 ## References
 
-[Phrack Magazine](http://phrack.org/issues/57/15.html)
-[NetSec wiki](https://nets.ec/Ascii_shellcode#The_Kernel_Interrupt)
-[Exploit-Db docs](https://www.exploit-db.com/docs/english/13127-writing-self-modifying-code-andutilizing-advanced-assembly-techniques.pdf)
+-[Phrack Magazine](http://phrack.org/issues/57/15.html)
+-[NetSec wiki](https://nets.ec/Ascii_shellcode#The_Kernel_Interrupt)
+-[Exploit-Db docs](https://www.exploit-db.com/docs/english/13127-writing-self-modifying-code-andutilizing-advanced-assembly-techniques.pdf)
