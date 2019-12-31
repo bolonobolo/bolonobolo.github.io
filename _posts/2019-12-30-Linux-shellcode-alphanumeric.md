@@ -316,7 +316,7 @@ Next testing the bof program we found that the buffer overflow with EIP overwrit
 136 - 66 (shellcode) - 4 (EIP address overwrite) = 66 bytes <br>
 so we can pass the first 6 NOP bytes + 66 shellcode bytes + 4 EIP address redirection bytes. Using Peda we have first to find the adress to land to.
 
-![](/assets/images/linux/x86/alphanumeric_1.gif)<br>
+![](/assets/images/linux/x86/alphanumeric_0.gif)<br>
 
 As we can see in this case we can choose an adress at the end of NOP zone before our shellcode so ```0xbffff788```. Now we can observe what happens in the stack when we use this address
 
