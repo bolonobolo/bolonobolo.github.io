@@ -17,7 +17,7 @@ tags:
 ![](/assets/images/shell.png)<br>
 
 ## Intruduction
-Back to shellcode argument, today we will speak about alphanumeric shellcode. This arguemnt was suggested to me from @nahualito, some weeks ago and i have to admint it took me crazy sometimes but it was also a lot fun. The scope of the task is to create a shellcode completely of alphanumeric characters. The reason of this madness is because
+Back to shellcode argument, today we will speak about alphanumeric shellcode. This arguement was suggested to me from @nahualito (ty!), some weeks ago and i have to admnit it took me crazy sometimes but it was also a lot fun. The scope of the task is to create a shellcode completely of alphanumeric characters. The reason of this madness is because
 > there are several filtering schemes out there being employed by programs that only allow alphanumeric characters to be passed into their buffer<br>
 
 also
