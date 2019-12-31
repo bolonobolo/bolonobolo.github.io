@@ -173,7 +173,7 @@ push eax
 Now we have the basic elements for the execve, it's time to load everything in the registers using PUSHAD/POPAD. PUSHAD isn't in the table but POPAD is so what we need to do is to emulate a PUSHAD and then call a POPAD. PUSHAD is an instruction that load registers on the stack in this order: EAX, ECX, EDX, EBX, ESP, EBP, ESI, and EDI
 Our PUSHAD is a little bit different: EDX, ECX, EBX, EAX, ESP, EBP, ESI, EDI. In this manner when we call POPAD we will put all the things in the right places.
 
-|PUSHAD instruction | Personilized PUSHAD instruction | 
+|PUSHAD instruction | Personalized PUSHAD instruction | 
 |-------------------|---------------------------------|
 |PUSH EAX |PUSH EDX (0x0)|
 |PUSH ECX |PUSH ECX|
@@ -234,16 +234,7 @@ push eax        ; put it on the stack
 ```
 The last problem to solve is that 0xffff80cd must be called as last instruction so living in little endian we need to push the value as first thing. We can summerize the execution with this schema
 
-```ascii
-     NOP
- ------------------------------------------
-|        |                     |
------------------------------------------------------------------------------------------
-         |_____________________|
-          reconstrucion shellcode
-          
-
-```
+![](/assets/images/linux/x86/alphanumeric_0.png)<br>
 
 ## The Shellcode
 
@@ -298,4 +289,8 @@ _start:
        xor al, 0x41
 ```
 
+Now we need a simple buffer overflow that permit us to load and execute the shellcode. Let's use a simple C program
 
+```C
+
+```
