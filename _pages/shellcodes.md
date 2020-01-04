@@ -13,6 +13,7 @@ Some codes published here are also on [Exploit-DB](https://www.exploit-db.com/sh
 - [Linux/x86 - execve /bin/sh Shellcode (25 bytes)](https://blackcloud.me/execve)<br>
 - [Linux/x86 - Reverse Shell NULL free 127.0.0.1:4444 Shellcode (91 bytes)](https://blackcloud.me/reverse_shell)<br>
 - [Linux/x86 - NOT + XOR-N + Random Encoded /bin/sh Shellcode (132 bytes)](https://blackcloud.me/encoders)
+- [Linux/x86 - execve() - Alphanumeric (66 bytes)](https://blackcloud.me/linux_execve_alphanum)
 
 ## Windows
 - [Windows x86 - spawn calc.exe Win7/10 (176 bytes)](https://blackcloud.me/win_calc)
