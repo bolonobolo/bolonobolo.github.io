@@ -17,10 +17,10 @@ tags:
 ![](/assets/images/shell.png)<br>
 
 ## Intruduction
-Back to shellcode argument, today we will speak about alphanumeric shellcode. This arguement was suggested to me from @nahualito (ty!), some weeks ago and i have to admnit it took me crazy sometimes but it was also a lot fun. The scope of the task is to create a shellcode completely of alphanumeric characters. The reason of this madness is because
+Back to shellcode argument, today we will speak about alphanumeric shellcode. This argument was suggested to me from @nahualito (ty!), some weeks ago and i have to admit it took me crazy sometimes but it was also a lot fun. The scope of the task is to create a shellcode completely of alphanumeric characters. The reason of this madness is because
 > there are several filtering schemes out there being employed by programs that only allow alphanumeric characters to be passed into their buffer<br>
 
-also
+an also
 
 > (Alphanumeric) shellcodes bypasses many character filters and is somewhat easy to learn due to the fact that many ascii instructions are only one or two byte instructions. The smaller the instructions, the more easily obfuscated and randomized they are. During many buffer overflows the buffer is limited to a very small writeable segment of memory, so many times it is important to utilize the smallest possible combination of opcodes. In other cases, more buffer space is available and things like ascii art shellcode are more plausible.<br>
 
@@ -107,10 +107,10 @@ What can we directly deduct of all this?
 - "jmp" and "cmp" instructions: we can realize some comparisons but we can't directly use constant values with CMP.
 
 
-Not so much eh?! Ah and obviuosly don't forget that operands of these instructions (/r, imm8, imm32, disp8 and disp32) must also remain alphanumeric. It may make our task once again more complicated...<br>
+Not so much eh?! Ah and obviously don't forget that operands of these instructions (/r, imm8, imm32, disp8 and disp32) must also remain alphanumeric. It may make our task once again more complicated...<br>
 
 ## First alphanumeric instructions
-No panic, we can obtain a shellcode with a little of fantasy. The simple idea behind is to store all that we need on the stack and lastly use the POPAD instruction to load the right things in the right places<br>
+No panic, we can obtain a shellcode with a little of creativity. The simple idea behind is to store all that we need on the stack and lastly use the POPAD instruction to load the right things in the right places<br>
 For the lord of simplicity of our shellcode we'll take the simpliest Linux shellcode to manipulate, the ```execve()``` shellcode.<br>
 Our [shellcode](https://blackcloud.me/SLAE32-6/) should work for this purpose:
 ```nasm
@@ -170,7 +170,7 @@ dec eax
 push eax
 ```
 
-Now we have the basic elements for the execve, it's time to load everything in the registers using PUSHAD/POPAD. PUSHAD isn't in the table but POPAD is so what we need to do is to emulate a PUSHAD and then call a POPAD. PUSHAD is an instruction that load registers on the stack in this order: EAX, ECX, EDX, EBX, ESP, EBP, ESI, and EDI
+Now we have the basic elements for the execve, it's time to load everything in the registers using PUSHAD/POPAD. PUSHAD isn't in the table but POPAD is, so what we need to do is to emulate a PUSHAD and then call a POPAD. PUSHAD is an instruction that load registers on the stack in this order: EAX, ECX, EDX, EBX, ESP, EBP, ESI, and EDI
 Our PUSHAD is a little bit different: EDX, ECX, EBX, EAX, ESP, EBP, ESI, EDI. In this manner when we call POPAD we will put all the things in the right places.
 
 |PUSHAD instruction | Personalized PUSHAD instruction | 
