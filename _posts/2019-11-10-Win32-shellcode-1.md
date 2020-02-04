@@ -16,7 +16,7 @@ tags:
 
 ## Introduction
 Since now, we have talked about shellcoding on Linux. Now we move on a more juicy target: Windows OS. Writing shellcode for Windows isn't linear and simple like Linux. First of all Windows doesn't has syscall but instead we must use kernel API to call functions for what we need to do. Second and most important the addresses of this function are not static and may change from version to version of Windows kernel release.
-There are a lot of well done and very helpfull dcoumentation out there, covering the Win32 shellcode. Let me list some of this documentation from which we took inspiration and from we took some pieces of code to understand how to make some shellcodes:
+There are a lot of well done and very helpfull documentation out there, covering the Win32 shellcode. Let me list some of this documentation from which we took inspiration and from we took some pieces of code to understand how to make some shellcodes:
 - [This amazing book](https://nostarch.com/malware) help me a lot understand how Win32 kernel API works
 - [The amazing h0mbre blog](https://h0mbre.github.io/Babys-First-Shellcode/) 
 - [Introduction to Windows Shellcode Development – Part 3](https://securitycafe.ro/2016/02/15/introduction-to-windows-shellcode-development-part-3/) by [@NytroRST](https://twitter.com/NytroRST/)
@@ -39,7 +39,7 @@ Accordingly with the documentation, the API are exported through dlls that are m
 The OS allocates a structure for every running process, the first structure is the TEB, accessible from the FS segment register, at offset 0x30 within TEB is the pointer to the PEB ```fs:[0x30]```. The PEB structure holds infos about heaps, binary image infos and most important, 3 linked lists regarding loaded modules that have been mapped in the process space. So starting from here we can find the ```kernel32.dll``` address, rising the modules addresses that are store always with fixed offsets.
 As said at offset ```0xc``` within the PEB is the pointer to the ```PEB_LDR_DATA``` structure, which contains 3 doubly linked lists of ```LDR_DATA_TABLE``` structures, one for each loaded module. The DllBase field in the ```kernel32.dll``` entry is the value we're seeking. So the steps are here listed:
 
-1. ```PEB``` is located at ```0x3``` From File Segment register
+1. ```PEB``` is located at ```0x3``` from File Segment register
 2. ```LDR``` (PEB structure) is located at ```PEB + 0xc``` offset
 3. ```InMemoryOrderModuleList``` is the order in which the modules get stored in memory and is located at ```LDR + 0x14``` offset
 4. 1st module is the exe address itself
