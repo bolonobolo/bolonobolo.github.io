@@ -21,7 +21,7 @@ I installed some time ago the Pihole Ad Blocking on my Raspberry Pi, to avoid th
 The chain to follow to transform your Pihole in a DNS that blocks phishing links is preatty easy:
 
 1. download and install the Pihole; there are many guides in Internet, depending on where you want to install it [here's one for Raspberry](https://blog.cryptoaustralia.org.au/instructions-for-setting-up-pi-hole/)    
-2. add the phishing list to the adlist.list of your Pihole istallation
+2. add the phishing list to the ```adlist.list``` of your Pihole istallation
 3. update your Gravity list 
 4. that's it.
 
