@@ -23,7 +23,8 @@ The chain to follow to transform your Pihole in a DNS that blocks phishing links
 1. download and install the Pihole; there are many guides in Internet, depending on where you want to install it [here's one for Raspberry](https://blog.cryptoaustralia.org.au/instructions-for-setting-up-pi-hole/)    
 2. add the phishing list to the ```adlist.list``` of your Pihole istallation
 3. update your Gravity list 
-4. that's it.
+4. report and vote for phishing sites
+5. check that pihole blocks DNS queries
 
 As said, the first step is pretty simple - yet it's offtopic here (ping me if you are in trouble with the installation), so I'll discuss directly the second point. 
 
@@ -33,9 +34,6 @@ It is called [Phishing Army](https://phishing.army/) and it updates its lists di
 - [Phishtank](https://www.phishtank.com/)
 - [Openphis](https://openphish.com/)
 - [PhishFindR](https://github.com/mitchellkrogza/Phishing.Database)  
-
-The first thing to do is to report and vote for phishing sites, the easy way is to follow the instruction written on the amazing blog of the [CyberV19 volunteers](https://cyberv19.org.uk/2020/03/20/helping-the-fight-against-phishing/) about voting system on Phishtank.
-When the link reaches a good number of votes it is marked as phishing, then it will be put in the blacklist update of Phishing Army and automatically inside your Pihole.
 
 ### Add Phishing Army blacklist to your Pihole
 To add the Phishing Army black list to your Pihole simply add the list to the list file in the path  ```/etc/pihole/adlist.list``` file in your Pihole installation.
@@ -48,11 +46,16 @@ paste the link at the bottom of your list file, write and quit.
 
 ![](/assets/images/Various/pihole_adlists.png)<br>
 
+### Update your Gravity list
 Now you have to update the Gravity black list by typing the command
 ```bash
 # pihole -g
 ```
 ![](/assets/images/Various/pihole_adlists_update.png)<br>
+
+### Report and vote for phishing sites
+The first thing to do is to report and vote for phishing sites, the easy way is to follow the instruction written on the amazing blog of the [CyberV19 volunteers](https://cyberv19.org.uk/2020/03/20/helping-the-fight-against-phishing/) about voting system on Phishtank.
+When the link reaches a good number of votes it is marked as phishing, then it will be put in the blacklist update of Phishing Army and automatically inside your Pihole.
 
 ### Checks
 Now you can check if your Pihole is blocking malicious DNS requests.
