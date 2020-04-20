@@ -72,4 +72,5 @@ Try to surf one of the links in the results and see the DNS query blocked by the
 Well done!
 
 ### Conclusions
-This is a home setting, for enteprise solutions I would suggest to install the Pihole in a docker and configure the Domain Controller to point to the Pihole as your primary DNS.
+This is a home setup scenario. For a small company or test enterprise solutions, we would suggest installing Pi-hole in a docker container and configuring the Domain Controller to point to the Pi-hole as your primary DNS.<br>
+To reiterate, we recommend this setup for HOME use only. Hospitals and healthcare providers should use business class solutions for DNS services and protective DNS.
