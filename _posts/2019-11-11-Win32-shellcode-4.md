@@ -481,7 +481,9 @@ The length is 387 bytes and is NULL free.<br>
 It seems also that the shellcode bypass Windows Defender AV updated at 15/06/2020
 
 ![](/assets/images/windows/x86/reverse_shell_2.gif)<br>
+<br>
 ![](/assets/images/windows/x86/reverse_shell_3.gif)<br>
+<br>
 ![](/assets/images/windows/x86/reverse_shell_4.gif)<br>
 
 ## References
