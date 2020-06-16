@@ -241,7 +241,7 @@ and Windows 10 (x86)
 ![](/assets/images/windows/x86/getmsg_1.gif)<br>
 
 The length is 223 bytes and is NULL free.<br>
-In the next post we will spawn a Reverse shell.
+[In the next post](https://blackcloud.me/Win32-shellcode-4/) we will spawn a Reverse shell.
 
 ## References
 - [This amazing book](https://nostarch.com/malware) help me a lot understand how Win32 kernel API works
