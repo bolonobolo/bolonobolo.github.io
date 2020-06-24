@@ -4,7 +4,7 @@ title: Using Pihole to fight phishing
 date: 2020-03-20
 classes: wide
 header:
-  teaser: /assets/images/shell.png
+  teaser: /assets/images/Various/phish.jpg
 tags:
   - Phishing
   - COVID
