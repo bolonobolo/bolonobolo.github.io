@@ -26,7 +26,7 @@ First of all we need to choose how hide our payload behind an image and most imp
 The hint in the assignemt page sais we can use file concatenation. So we choosed this way to work (a big thank you to reenz0h for the help):
 - Take a kitties image from internet (who doesn't love kitties? :))
 - Create the payload with msfvenom
--- in this case I choosed a simple reverse tcp windows x64 shell
+    - in this case I choosed a simple reverse tcp windows x64 shell
 - Encrypt the payload with AES
 - Append the encrypted payload at the end of the image 
 - Append the original lenght of image as last bytes in the image
