@@ -109,7 +109,7 @@ Long story short, instead of charging the payload from a separated file we need 
 
 ## Tests
 As in the previos post we tested the dropper on different process: ```explorer.exe```, ```notepad.exe``` and ```smartscreen.exe``` but this case all the 3 processes inject don't trigger Windows Defender nor AVG Free, however the ```explorer.exe``` injecton cause a reload of the process in the case you exit the shell on my attacking machine and this is very loud. On the other hand nothing appens when we try to inject the ```notepad.exe```, AVG scan the dropper and let it execute the reverse shell payload maintaining the shell active also when we close Notepad and the ```notepad.exe``` process is destroyed, same story if we try to inject the ```smartscreen.exe``` process, another reverse shell session is opened without any alarm from AVG.
-So we are following the TOON rule (Two is One and One is Nothing) also in this case.  
+So we are following the TOON rule (Two is One and One is None) also in this case.  
 
 ![](/assets/images/AV_evasion/AVG_image_bypass.gif)<br>
 
