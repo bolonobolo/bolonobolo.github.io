@@ -23,7 +23,7 @@ The most of the code is working pretty well as we saw, but the payload extractio
 
 ## the Payload
 First of all we need to choose how hide our payload behind an image and most important how we want to extract it before using it. <br>
-The hint in the assignemt page says we can use file concatenation. So we choosed this way to work (a big thank you to reenz0h for the help):
+The hint in the assignemt page sais we can use file concatenation. So we choosed this way to work (a big thank you to reenz0h for the help):
 - Take a kitties image from internet (who doesn't love kitties? :))
 - Create the payload with msfvenom
 -- in this case I choosed a simple reverse tcp windows x64 shell
