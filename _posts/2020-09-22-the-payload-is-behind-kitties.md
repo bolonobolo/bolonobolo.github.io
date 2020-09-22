@@ -89,9 +89,9 @@ In the code trunk below the Windows functions are called as pointers because of 
 ```bash
 // Extract payload from the image
     image = (char*)pLockResource(resHandle); // lock the resource and point to the first char of the jpg
-    image_len = SizeofResource(NULL, res); // get the size of the jpg + p0 + last 7 bytes 
+    image_len = SizeofResource(NULL, res); // get the size of the jpg + payload + last 7 bytes 
     
-    end = image + image_len - 7; // jump to the end of the jpg and read the last 7 bytes that are the original size of the jpg without p0
+    end = image + image_len - 7; // jump to the end of the jpg and read the last 7 bytes that are the original size of the jpg without payload
     size = atoi(end); // cast from char to int, now size is the original size of the jpg
     offset = image + size; // offset points to the first char of the p0
     payload_len = image_len - size - 7; // calculate the payload size
