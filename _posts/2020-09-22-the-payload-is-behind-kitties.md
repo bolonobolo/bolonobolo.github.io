@@ -65,7 +65,7 @@ Great! our devil jpg is ready. Now we have to modify our dropper to extract the 
 
 ## the Dropper
 Let's change the name of the payload as a recource by the file ```resources.rc``` to ```kittens.jpg```
-```C
+```
 #include "resources.h"
 
 IMAGE RCDATA kittens.jpg
