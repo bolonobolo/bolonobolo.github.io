@@ -118,7 +118,7 @@ So we are following the TOON rule (Two is One and One is None) also in this case
 ![](/assets/images/AV_evasion/AVG_image_bypass.gif)<br>
 
 and [here](https://github.com/bolonobolo/av_evasion/tree/master/PE_Injection/Behind%20image%20Dropper/implant.cpp) you can find the dropper code. <br>
-In the next post we'll try to complete another point of the assignment ```hide the encrypted payload behind an image```.
+In the next post we'll try to complete another point of the assignment ```Build a dropper, which hosts its payload in a separate AES-encrypted file```.
 
 ## References
 Malware Dev Essentials Course
