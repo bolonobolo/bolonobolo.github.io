@@ -60,7 +60,7 @@ After that we have to append the value of the size of the original image, in thi
 echo "3344957" >> kittens.jpg
 ```
 Check again the last hex values of the manipulated jpg
-![](/assets/images/AV_evasion/hex_compare2.png)
+![](/assets/images/AV_evasion/hex_compare2.png)<br>
 Great! our devil jpg is ready. Now we have to modify our dropper to extract the payload from the image in our victim machine 
 
 ## the Dropper
