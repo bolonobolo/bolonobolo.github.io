@@ -308,9 +308,9 @@ Now we need a simple buffer overflow that permit us to load and execute the shel
 When you test it on new kernels remember to disable the randomize_va_space and to compile the C program with execstack enabled and the stack protector disabled
 
 ```bash
-# bash -c 'echo "kernel.randomize_va_space = 0" >> /etc/sysctl.conf'
-# sysctl -p
-# gcc -z execstack -fno-stack-protector -mpreferred-stack-boundary=2 -g bof.c -o bof
+bash -c 'echo "kernel.randomize_va_space = 0" >> /etc/sysctl.conf'
+sysctl -p
+gcc -z execstack -fno-stack-protector -mpreferred-stack-boundary=2 -g bof.c -o bof
 ```
 Next testing the bof program we found that the buffer overflow with EIP overwrite appens with 136 bytes of input, so doing a little math here we can know that: <br>
 136 - 66 (shellcode) - 4 (EIP address overwrite) = 66 bytes <br>
