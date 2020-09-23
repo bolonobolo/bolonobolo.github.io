@@ -20,7 +20,7 @@ In the last post we wrote a reverse shell using ```LoadLibraryA``` and ```GetPro
 A common way to address this problem is to calculate a hash of each symbol string and compare the result with a precomputed value stored in the shellcode. The hash function does not need to be sophisticated; it only needs to guarantee that within each DLL used by the shellcode, the hashes that the shellcode uses are unique. Hash collisions between symbols in different DLLs and between symbols the shellcode does not use are fine. The most common hash function is the 32-bit rotate-right-additive hash.<br>
 In this post we'll using hashed name to find functions. 
 
-```nasm
+```assembly
 hashString:
     push esi
     push edi
@@ -45,7 +45,7 @@ hash_done:
 This function calculates a 32-bit DWORD hash value of the string pointer argument. The EDI register is treated as the current hash value, and is initialized to zero. Each byte of the input string is loaded via the lodsb instruction at ```lodsb```. If the byte is not NULL, the current hash is rotated right by 13 ```0x0d``` in hex, and the current byte is added into the hash. This hash is returned in EAX so that its caller can compare the result with the value compiled into the code.<br>
 This PE parsing ability instead of ```GetProcAddress``` approach has the additional benefit of making reverse-engineering of the shellcode more difficult. The hash values hide the API calls used from casual inspection. 
 
-```nasm
+```assembly
 findSymbolByHash:
     pushad
     mov ebp, [esp + 0x24]       ; load 1st arg: dllBase
@@ -134,7 +134,7 @@ The shellcode works on both x86 Win 7 and Win 10 but assuming the fact:
 You must note that this could makes our shellcode marked as malicious by Windows Defender AV and others AV and IDS/IPS/ATP agents :)
 You could read an interesting article on [Fireeye](https://www.fireeye.com/blog/threat-research/2012/11/precalculated-string-hashes-reverse-engineering-shellcode.html) blog, about this argument.
 
-```nasm
+```assembly
 global _start
 
 section .text

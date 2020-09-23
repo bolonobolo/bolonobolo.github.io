@@ -53,7 +53,7 @@ The 3rd module is what we are seeking but we need to know one last thing. Everyt
 ## From theory to practice
 Move on on some assembly code to view things in a "more simple" perspective. Take note that the addresses used in this chunk of code are fictitious and the debug commands are from WinDbg.
 
-```nasm
+```assembly
 global _start
 
 
@@ -161,7 +161,7 @@ The MS-DOS header is ```0x40``` bytes and the last 4 bytes are the ```e_lfanew``
 
 The export data is stored in ```IMAGE_EXPORT_DIRECTORY``` where we can find the offset of ```AddressOfNames``` at offset ```0x20``` 
 
-```nasm
+```assembly
     ; EAX = base of kernel32.dll address
 
 getAddressofName:
@@ -184,7 +184,7 @@ Instead of using two times the ```mox eax, eax``` instruction to load the 2nd an
 
 This change can save us 4 bytes for every ```mov``` instruction
 
-```nasm
+```assembly
 global _start
 
 section .text

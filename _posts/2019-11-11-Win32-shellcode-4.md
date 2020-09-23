@@ -36,7 +36,7 @@ The process can be resumed in this steps:
 As you can see there a lot of stuffs to do, and there are also some considerations to do about data structures needed
 
 ### WSAStartup
-```C++
+```cpp
 WSAStartup(MAKEWORD(2, 2), wsadata_pointer)
 
 int WSAStartup(
@@ -55,7 +55,7 @@ The [WSAData](https://docs.microsoft.com/en-us/windows/win32/api/winsock/ns-wins
 If successful, the WSAStartup function returns zero in EAX. Otherwise, it returns error codes.
 
 ### WSASocketA
-```C++
+```cpp
 SOCKET WSAAPI WSASocketA(
   int                 af,
   int                 type,
@@ -74,7 +74,7 @@ RTFM because it is very simple here, similar to the socket syscall in Linux. We 
 - Address Family must be AF_INET so af=2
 
 ### Connect
-```C++
+```cpp
 int WSAAPI connect(
   SOCKET         s,
   const sockaddr *name,
@@ -90,7 +90,7 @@ If no error occurs, connect returns zero. Otherwise, it returns SOCKET_ERROR, an
 ## The Shellcode
 The comments in the code help understand how it works:<br>
 
-```nasm
+```assembly
 global _start
 
 section .text
@@ -420,7 +420,7 @@ root@root:# objdump -d ./reverse_shell_shellcode|grep '[0-9a-f]:'|grep -v 'file'
 ```
 The shellcode.c file
 
-```C++
+```c
 #include <stdio.h>
 #include <windows.h>
 
