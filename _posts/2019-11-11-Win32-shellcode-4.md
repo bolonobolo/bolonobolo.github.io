@@ -90,7 +90,7 @@ If no error occurs, connect returns zero. Otherwise, it returns SOCKET_ERROR, an
 ## The Shellcode
 The comments in the code help understand how it works:<br>
 
-```assembly
+```nasm
 global _start
 
 section .text

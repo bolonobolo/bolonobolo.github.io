@@ -24,7 +24,7 @@ First we need to find the ```GetProcAddress``` function, this is the default fun
 
 this 3 elements are enough to find our function. The concept is to load the ```AddressOfNames``` offset in EAX, add the BaseDll address of ```Kerne32.dll``` and start from this point to search our function, comparing the word in EAX with the first element. Once the first element fits, we add 4 bytes to EAX and compare the next element, and so on since we find the the iOrdinal of ```GetProcAddress``` abd save it in EDX register. At this point we can use the ordinal to obtain the ```GetProcAddress``` function pointer address
 
-```assembly
+```nasm
 getProcAddress:
 	inc ecx                             ; ordinals increment
 	lodsd                               ; get "address of name" in eax
@@ -50,7 +50,7 @@ getProcAddressFunc:
 Now we can user the ```GetProcAddress``` to find the other function needed: ```CreateProcessA```.<br>
 To do that we push the name of the new function on the stack and we call the ```GetProcAddress``` to save the ```CreateProcessA``` function pointer address in the EAX register. 
 
-```assembly
+```nasm
 getCreateProcessA:
 	xor ecx, ecx                    ; zeroing ECX
 	push 0x61614173                 ; aaAs
@@ -65,7 +65,7 @@ getCreateProcessA:
 Now we have to push the process to call in the stack. In this case, the ASCII string ```calc```.
 After that we can call the ```CreateProcessA``` to spawn our Calculator
 
-```assembly
+```nasm
 getcalc:
     push 0x636c6163             ; 'calc'
     mov ecx, esp                ; stack pointer to 'calc'
@@ -98,7 +98,7 @@ getcalc:
 ```
 Last but not least, we have to exit the process in the same way we founf the ```CreateProcessA``` we can found the ```ExitProcess``` and use it to exit gently.
 
-```assembly
+```nasm
 getExitProcess:
 	add esp, 0x010              ; clean the stack
 	push 0x61737365             ; asse
@@ -116,7 +116,7 @@ getExitProcess:
 
 ## The Shellcode
 
-```assembly
+```nasm
 global _start
 
 section .text
