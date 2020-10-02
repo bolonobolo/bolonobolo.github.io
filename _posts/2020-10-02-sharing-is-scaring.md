@@ -4,7 +4,7 @@ title: AV Evasion - Sharing is (s)caring
 date: 2020-10-02
 classes: wide
 header:
-  teaser: /assets/images/AV_evasion/girolamo_savonarola.jpg
+  teaser: /assets/images/AV_evasion/sharing-is-caring.jpg
 tags:
   - Pentester
   - Windows
@@ -12,7 +12,7 @@ tags:
   - AV Evasion
   - Kitties
 --- 
-![](/assets/images/AV_evasion/girolamo_savonarola.jpg)<br>
+![](/assets/images/AV_evasion/sharing-is-caring.jpg)<br>
 
 ## Introduction
 Hello hackers and welcome back to the 3rd and last assignment of the well done course on Malware Development by [Sektor7](https://institute.sektor7.net/red-team-operator-malware-development-essentials), in the previous [blog post](https://blackcloud.me/the-payload-is-behind-kitties/) we saw PE injection using a payload hidden inside an image, implemented the dropper with the capacity of extraction of the payload and injecting it in the PE process target. The last assignmet ask us to encrypt a payload, load it on the file system or in our case in shared folder on the target OS, and write a dropper that open the payload and trigger the injection. The suggestions from reenz0h here are to use the [CreateFileA](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea) and [ReadFile](https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-readfile) WinAPI functions.
