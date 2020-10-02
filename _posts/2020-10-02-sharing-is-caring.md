@@ -64,8 +64,8 @@ First thing first we define the size of our buffer
 ```c
   #define BUFFSIZE 512
 ```
-Next we have to define the elements needed to call the ```CreateFileA``` and ```ReadFile``` functions in the encryted way.<br>
-the first elements are the pointers.
+Next we have to define the elements needed to call the ```CreateFileA``` and ```ReadFile``` functions in the encrypted way.<br>
+The first elements are the pointers.
 ```c
   HANDLE (WINAPI * pCreateFileA)(
     LPCSTR                lpFileName,
@@ -86,16 +86,18 @@ the first elements are the pointers.
   );
 
 ```
-The encrypted strings,
+Then the encrypted strings,
 ```c
   unsigned char sCreateFileA[] = { ... };
   unsigned char sReadFile[] = { ... };
 ```
-the strings decryption and the address assignment to the function pointers 
+the strings decryption  
 ```c
   AESDecrypt((char *) sCreateFileA, sizeof(sCreateFileA), key, sizeof(key));
   AESDecrypt((char *) sReadFile, sizeof(sReadFile), key, sizeof(key));
-  ...
+```
+and the address assignment to the function pointers
+```c
   pCreateFileA = GetProcAddress(GetModuleHandle(sKernel), sCreateFileA);
   pReadFile = GetProcAddress(GetModuleHandle(sKernel), sReadFile);
 ```
