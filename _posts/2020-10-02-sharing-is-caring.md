@@ -1,6 +1,6 @@
 ---
 layout: single
-title: AV Evasion - Sharing is ~~~s~~~caring
+title: AV Evasion - Sharing is ~~s~~caring
 date: 2020-10-02
 classes: wide
 header:
