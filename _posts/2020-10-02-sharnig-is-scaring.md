@@ -155,7 +155,7 @@ In the code trunk below the Windows functions are called as pointers because of 
   // Copy payload to new memory buffer
   pRtlMoveMemory(exec_mem, payload, payload_len);
 ```
-After opening the file with ```CreateFileA``` function we need to read it with the ```ReadFile``` function. This last function load the payload as binary stream in the ```payload``` pointer in memory. What we must do now is to calculate the payload lenght and move the payload to another RW memory buffer. After that we are ready to decrypt our payload and inject it in our PE target process.
+After opening the file with ```CreateFileA``` function we need to read it with the ```ReadFile``` function, this function load the payload as binary stream in the ```payload``` pointer in memory. What we must do now is to calculate the payload lenght and move the payload to another RW memory buffer. After that we are ready to decrypt our payload and inject it in our PE target process.
 
 ## Tests
 As in the previous post we tested the dropper on different process: ```explorer.exe```, ```notepad.exe``` and ```smartscreen.exe``` but in this case  the injection doesn't trigger Windows Defender nor AVG Free "only" on ```explorer.exe``` and ```smartscreen.exe```, AVG scan the dropper and let it execute the reverse shell payload maintaining the shell active. So, also in this case, we are following the TOON rule (Two is One and One is None) also in this case.  
