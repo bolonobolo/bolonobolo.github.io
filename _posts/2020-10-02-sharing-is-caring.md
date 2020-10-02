@@ -62,7 +62,6 @@ Now we must mount the folder where the payload is, in the target OS as a shared 
 ## The Dropper
 First thing first we define the size of our buffer
 ```c
-//Define the BUFFSIZE
   #define BUFFSIZE 512
 ```
 Next we have to define the elements needed to call the ```CreateFileA``` and ```ReadFile``` functions in the encryted way.<br>
