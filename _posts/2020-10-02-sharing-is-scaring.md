@@ -21,7 +21,7 @@ Hello hackers and welcome back to the 3rd and last assignment of the well done c
 Let's start taking our last dropper and check what we have and what we must change.<br>
 The most of the code is working pretty well as we saw, but the payload extraction has to be changed because now reenz0h asked to open the payload from a directory on the fiule system, we choosed a network sherd folder, so take a look closer to the payload memory loading and analyze what we have to change.
 
-## the Payload
+## The Payload
 In the previous posts we already prepared and encrypted the payload that was implemented as a resource or hidden behind an image, so there isn't much work here. The AES256 encrypted payload is the same used in the last post so a simple Win64 reverse shell
 
 Let's check the payload with ```xxd```
@@ -59,7 +59,7 @@ xxd -g1 payload_enc
 ```
 Now we must mount the folder where the payload is, in the target OS as a shared folder. 
 
-## the Dropper
+## The Dropper
 As for the previous post the main thing to change is the way the payload is loaded in memory. 
 
 ```c

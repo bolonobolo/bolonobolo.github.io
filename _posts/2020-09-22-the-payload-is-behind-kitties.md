@@ -21,7 +21,7 @@ Hello and welcome back to the 2nd assignment of the well done course on Malware 
 Let's start taking our last dropper and check what we have and what we must change.<br>
 The most of the code is working pretty well as we saw, but the payload extraction has to be changed because now reenz0h asked to hide the payload inside an image and extract it before injecting in the victim process, so take a look closer to the payload memory loading and analyze what we have to change.
 
-## the Payload
+## The Payload
 First of all we need to choose how hide our payload behind an image and most important how we want to extract it before using it. <br>
 The hint in the assignemt page sais we can use file concatenation. So we choosed this way to work (a big thank you to reenz0h for the help):
 - Take a kitties image from internet (who doesn't love kitties? :))
@@ -63,7 +63,7 @@ Check again the last hex values of the manipulated jpg
 ![](/assets/images/AV_evasion/hex_compare2.png)<br>
 Great! our devil jpg is ready. Now we have to modify our dropper to extract the payload from the image in our victim machine 
 
-## the Dropper
+## The Dropper
 Let's change the name of the payload as a recource by the file ```resources.rc``` to ```kittens.jpg```
 ```c
 #include "resources.h"
