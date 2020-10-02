@@ -22,9 +22,9 @@ Let's start taking our last dropper and check what we have and what we must chan
 The most of the code is working pretty well as we saw, but the payload extraction has to be changed because now reenz0h asked to open the payload from a directory on the fiule system, we choosed a network sherd folder, so take a look closer to the payload memory loading and analyze what we have to change.
 
 ## the Payload
-In the previous posts we alredy prepared and encrypted payload that was implemneted as a resource or hidden behind an image, so there isn't much work here. The AES256 encrypted payload is the same used in the last post so a simple Win64 reverse shell
+In the previous posts we already prepared and encrypted the payload that was implemented as a resource or hidden behind an image, so there isn't much work here. The AES256 encrypted payload is the same used in the last post so a simple Win64 reverse shell
 
-Let's check thje payload with ```xxd```
+Let's check the payload with ```xxd```
 ```bash
 xxd -g1 payload_enc
 00000000: 4d 37 18 fc 9d 9a ac 18 47 a6 fc 63 96 fc df 01  M7......G..c....
