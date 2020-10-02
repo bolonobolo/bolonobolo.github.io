@@ -4,7 +4,7 @@ title: AV Evasion - Sharing is (s)caring
 date: 2020-10-02
 classes: wide
 header:
-  teaser: /assets/images/AV_evasion/kittens.jpg
+  teaser: /assets/images/AV_evasion/girolamo_savonarola.jpg
 tags:
   - Pentester
   - Windows
@@ -168,4 +168,5 @@ We hope you enjoied the ride on ```RedTeam Operator Malware Development Essentia
 ## References
 Malware Dev Essentials Course
 - [Sektor7](https://institute.sektor7.net/red-team-operator-malware-development-essentials)
-- [reenz0h](https://twitter.com/Sektor7Net) <br>
+- [reenz0h](https
+://twitter.com/Sektor7Net) <br>
