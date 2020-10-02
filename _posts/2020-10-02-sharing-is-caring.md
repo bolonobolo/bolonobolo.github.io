@@ -170,7 +170,8 @@ As in the previous post we tested the dropper on different process: ```explorer.
 ![](/assets/images/AV_evasion/AVG_fs_bypass.gif)<br>
 
 and [here](https://github.com/bolonobolo/av_evasion/tree/master/PE_Injection/Sharing%20is%20scaring/implant.cpp) you can find the dropper code. <br>
-We hope you enjoied the ride on ```RedTeam Operator Malware Development Essentials``` walkthrough assignments and stay tuned for the ```Intermediate``` level posts :)
+We hope you enjoied the ride on ```RedTeam Operator Malware Development Essentials``` walkthrough assignments.<br> 
+Stay tuned for the ```Intermediate``` level posts :)
 
 ## References
 Malware Dev Essentials Course
