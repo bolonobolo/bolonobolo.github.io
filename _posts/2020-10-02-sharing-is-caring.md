@@ -178,3 +178,5 @@ Malware Dev Essentials Course
 - [Sektor7](https://institute.sektor7.net/red-team-operator-malware-development-essentials)
 - [reenz0h](https
 ://twitter.com/Sektor7Net) <br>
+
+![](./asset/images/counter.svg)
