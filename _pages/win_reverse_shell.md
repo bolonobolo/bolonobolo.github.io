@@ -314,7 +314,7 @@ getExitProcess:
 	call eax
 ```
 
-```C++
+```c
 #include <stdio.h>
 #include <windows.h>
 
