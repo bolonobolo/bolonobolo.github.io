@@ -179,7 +179,7 @@ The columns are (from left to right):
 
 ![](/assets/images/Conti/21th.png)
 
-The + symbols should reveals the details off the single victim but we are unable to click on it but looking at the screenshot we can find what the details are
+The + symbols should reveals the details of the single victim, unfortunatley we are unable to click on it but looking at the screenshots folder we can find what the details are
 
 ![](/assets/images/Conti/22th.png)
 ![](/assets/images/Conti/23th.png)
