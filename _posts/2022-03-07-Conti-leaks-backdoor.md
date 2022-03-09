@@ -232,11 +232,11 @@ The exe, dll, powershell and bat attack sessions accept custom parameters and al
 
 ![](/assets/images/Conti/33th.png)
 
-Name:fake.exe
-Size:3584
-Uploaded:2021-11-02 12:20:44
-By user: botadmin
-MD5 Hash:7c6187a71902254704866d5db8448ba0
+* Name:fake.exe
+* Size:3584
+* Uploaded:2021-11-02 12:20:44
+* By user: botadmin
+* MD5 Hash:7c6187a71902254704866d5db8448ba0
 
 We have squized all the informations from the leaked data about the Conti Operator System, but of course we are humans so we can do mistake or missing something. 
 We invite you to ping us in case you find something new on that leaks.
