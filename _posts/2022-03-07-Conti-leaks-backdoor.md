@@ -154,7 +154,7 @@ On the left panel, there is the operator menu
 
 ### Victim session
 We are able to partially navigate only the Bot page, the other links are broken because they are pointing to a dead onion site
-hxxps://x6rciduomtjt25xigz7onkgxmusuwwuxqvidjkcramwg3lb5vvpsm7ad[.]onion
+```hxxps://x6rciduomtjt25xigz7onkgxmusuwwuxqvidjkcramwg3lb5vvpsm7ad[.]onion```
 
 ![](/assets/images/Conti/19th.png)
 
