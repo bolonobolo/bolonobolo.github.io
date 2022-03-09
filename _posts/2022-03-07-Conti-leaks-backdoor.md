@@ -17,10 +17,10 @@ tags:
 The 27 of February 2022 after the official declaration of Conti ransomware group to supports Russia in the conflict against Ukraine and to threatens every entity that would hit Russia IT infrastructures, a selfdeclarated Ukrainian operator of Conti, deserted and started to leaks chat logs and internal tools. They started publish files on Anonfiles and in the meantime they opened a [Twitter account](https://twitter.com/ContiLeaks).
 
 
-Me and my collegue [Mayank](https://twitter.com/_mostwanted002_) started poke around the data leaked on [VX-Udenrground](https://share.vx-underground.org/Conti/) site and we found a lot of chat logs and some internal tools. There are a lot of good analysis on the chat logs, so we decided to move on the internal tools.
+Me and my collegue [Mayank](https://twitter.com/_mostwanted002_) started poke around the data leaked and published on [VX-Udenrground](https://share.vx-underground.org/Conti/) website and we found a lot of chat logs and some internal tools. There are a lot of good analysis on the chat logs, so we decided to move on the internal tools.
 
 The first thing we saw was the Conti locker, containing both decryptor and encryptor in a password protected zip file. The password was added to avoid bad uses of the encryptor executable. 
-Next thing we saw was a file called ```backdoor.js.zip``` that makes us more courious. We decided to apply the "dividi et impera" philosphy, Mayank decided to analyzes the Conti Locker and me the backdoor. [Here] (https://mostwanted002.cf/post/conti-locker/) you an find the amazing work of Mayank about his analysis.
+Next thing we saw was a file called ```backdoor.js.zip``` that makes us more courious. We decided to apply the "dividi et impera" philosphy, Mayank decided to analyzes the Conti Locker and me the backdoor. [Here](https://mostwanted002.cf/post/conti-locker/) you can find the work of Mayank about his analysis.
 
 ## Conti Operator infrastructure
 ### The Git repository
