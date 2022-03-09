@@ -260,7 +260,7 @@ log.js
 ```
 
 ## Conclusion
-According with [the DFIR Report](https://thedfirreport.com/2021/10/04/bazarloader-and-the-conti-leaks/) it seems to be a conection about Bazaar Loader and Conti group and looking at the backdoor file it seems true. I tried to understand how the Conti group Operator System works:
+According with [the DFIR Report](https://thedfirreport.com/2021/10/04/bazarloader-and-the-conti-leaks/) it seems to be a conection about Bazar Loader and Conti group and looking at the backdoor file it seems true. I tried to understand how the Conti group Operator System works:
 
 ![](/assets/images/Conti/Conti_diagram.png)
 
