@@ -138,7 +138,7 @@ This file set the HTTP metadata like User agent and connection parameters
 
 ## Frontend
 The fun fact is that we also retrieved the frontend files leaked by the former operator and opening the 7zip archives we can find 3 directory, the first one contains 33 web pages, every page contains 20 victims sorted by domain, the second one contains the same list of victims sorted by comments and the third contains some pdf with screenshots of the console operating against their victims.
-The 2 identical folders contain html file and subfolder where we can find all the necessary files to make the frontend almost usable, they are css and javascript files.
+The first 2 folders contain html files and subfolders where we can find everything we need to make the frontend almost usable, they are css and javascript files.
 
 ### Main page
 Opening the file 1.html we land on the Operator frontend
