@@ -20,12 +20,12 @@ The 27 of February 2022 after the official declaration of Conti ransomware group
 Me and my collegue [Mayank](https://twitter.com/_mostwanted002_) started poke around the data leaked and published on [VX-Udenrground](https://share.vx-underground.org/Conti/) website and we found a lot of chat logs and some internal tools. There are a lot of good analysis on the chat logs, so we decided to move on the internal tools.
 
 The first thing we saw was the Conti locker, containing both decryptor and encryptor in a password protected zip file. The password was added to avoid bad uses of the encryptor executable. 
-Next thing we saw was a file called ```backdoor.js.zip``` that makes us more courious. We decided to apply the "dividi et impera" philosphy, Mayank decided to analyzes the Conti Locker and me the backdoor. [Here](https://mostwanted002.cf/post/conti-locker/) you can find the work of Mayank about his analysis.
+Next thing we saw was a file called ```backdoor.js.zip``` that makes us more courious. We decided to apply the "dividi et impera" strategy, Mayank decided to analyzes the Conti Locker and I took the backdoor. [Here](https://mostwanted002.cf/post/conti-locker/) you can find the work of Mayank about his analysis.
 
 ## Conti Operator infrastructure
 ### The Git repository
 
-Thanks to the initial work of [Emilio Gonzales](https://twitter.com/res260) with his [tweet](https://twitter.com/res260/status/1498476237613850628) we know that the zip file contains a git repository, so first thing is to rename the folder to ```.git```, than run  ```git init``` and ```git reset``` to retrieve the contents.
+Thanks to the initial work of [Emilio Gonzales](https://twitter.com/res260) with his [tweet](https://twitter.com/res260/status/1498476237613850628) we know that the zip file contains a git repository, so first thing to do is to rename the folder to ```.git```, than run  ```git init``` and ```git reset``` to retrieve the contents.
 
 ![](/assets/images/Conti/1st.png)
 
