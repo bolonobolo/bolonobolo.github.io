@@ -265,7 +265,7 @@ According with [the DFIR Report](https://thedfirreport.com/2021/10/04/bazarloade
 ![](/assets/images/Conti/Conti_diagram.png)
 
 ## UPDATE 16/03/2022
-[Chelsea](https://twitter.com/seadev3) found others interesting IOCs that can confirm the connection between Bazar Loader and Conti group, you can check and note the domains inn this [tweet](https://twitter.com/seadev3/status/1504102491490852865).
+[Chelsea](https://twitter.com/seadev3) published others interesting IOCs that can confirm the connection between Bazar Loader and Conti group, you can check and note the domains inn this [tweet](https://twitter.com/seadev3/status/1504102491490852865).
 
 ![](/assets/images/Conti/FN67iN5XwAANSpS.png)
 
