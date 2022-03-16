@@ -227,7 +227,7 @@ For the Powershell and Bat session the operator can chooses the run type
 We have no informations on the Run Shellcode mode so it's not clear how it works 
 
 It seems the console also allows downloading files but it isn’t clear if it's used for the data leakage of the victim files.
-The exe, dll, powershell and bat attack sessions accept custom parameters and allow the attacker to choose to use a file called fake.exe. We don’t know what the file is but the html page contains what they seem the metadata of the file
+The exe, dll, powershell and bat attack sessions accept custom parameters and allow the attacker to choose to use a file called fake.exe. We don’t know what the file is but the html page contains what they seem the metadata's file.
 
 ![](/assets/images/Conti/33th.png)
 
@@ -265,7 +265,7 @@ According with [the DFIR Report](https://thedfirreport.com/2021/10/04/bazarloade
 ![](/assets/images/Conti/Conti_diagram.png)
 
 ## UPDATE 16/03/2022
-[Chelsea](https://twitter.com/seadev3) found others interesting IOCs that can confirm the connection between Bazar Loader and Conti group, you can check and note the domains inn this [tweet](https://twitter.com/seadev3/status/1504102491490852865)
+[Chelsea](https://twitter.com/seadev3) found others interesting IOCs that can confirm the connection between Bazar Loader and Conti group, you can check and note the domains inn this [tweet](https://twitter.com/seadev3/status/1504102491490852865).
 
 ![](/assets/images/Conti/FN67iN5XwAANSpS.png)
 
