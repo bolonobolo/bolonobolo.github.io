@@ -270,6 +270,3 @@ According with [the DFIR Report](https://thedfirreport.com/2021/10/04/bazarloade
 ![](/assets/images/Conti/FN67iN5XwAANSpS.png)
 
 
-![](/assets/images/Conti/FN67iN5XwAANSpS.png)
-
-
