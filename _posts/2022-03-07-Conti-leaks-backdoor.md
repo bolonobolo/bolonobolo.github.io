@@ -14,7 +14,7 @@ tags:
 ![](/assets/images/Conti/leaks.jpeg)<br>
 
 ## Introduction
-The 27 of February 2022 after the official declaration of Conti ransomware group to supports Russia in the conflict against Ukraine and to threatens every entity that would hit Russia IT infrastructures, ~~a selfdeclarated Ukrainian operator of Conti~~ a bored security researcher, deserted and started to leaks chat logs and internal tools. They started publish files on Anonfiles and in the meantime they opened a [Twitter account](https://twitter.com/ContiLeaks).
+The 27 of February 2022 after the official declaration of Conti ransomware group to supports Russia in the conflict against Ukraine and to threatens every entity that would hit Russia IT infrastructures, ~~a selfdeclarated Ukrainian operator of Conti~~ a bored security researcher, started to leaks chat logs and internal tools. They started publish files on Anonfiles and in the meantime they opened a [Twitter account](https://twitter.com/ContiLeaks).
 
 
 Me and my collegue [Mayank](https://twitter.com/_mostwanted002_) started poke around the data leaked and published on [VX-Udenrground](https://share.vx-underground.org/Conti/) website and we found a lot of chat logs and some internal tools. There are a lot of good analysis on the chat logs, so we decided to move on the internal tools.
