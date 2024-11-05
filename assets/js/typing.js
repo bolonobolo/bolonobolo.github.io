@@ -19,37 +19,32 @@ const commands = [
     const currentCommand = commands[commandIndex];
   
     if (!isDeleting) {
-      // Rendi visibile il testo quando inizia a digitare
+      // Aggiungi un carattere alla volta al testo
       terminalText.textContent = currentCommand.slice(0, charIndex++);
       
-      // Se abbiamo finito di digitare, inizia a cancellare dopo un ritardo
+      // Quando abbiamo digitato tutto il comando
       if (charIndex > currentCommand.length) {
         isDeleting = true;
-        setTimeout(typeCommand, delayBetweenCommands);
+        setTimeout(typeCommand, delayBetweenCommands); // Aspetta prima di cancellare
       } else {
-        setTimeout(typeCommand, typingSpeed);
+        setTimeout(typeCommand, typingSpeed); // Continua a digitare
       }
     } else {
-      // Iniziamo a cancellare il testo
+      // Cancellazione del testo
       terminalText.textContent = currentCommand.slice(0, charIndex--);
       
-      // Se abbiamo finito di cancellare, inizia il prossimo comando
+      // Quando tutto il testo è stato cancellato
       if (charIndex < 0) {
         isDeleting = false;
-        commandIndex = (commandIndex + 1) % commands.length;
-  
-        // Prima di digitare il prossimo comando, assicuriamoci che il testo sia vuoto
-        terminalText.textContent = ""; // Nascondiamo il testo prima di iniziare il prossimo comando
-        charIndex = 0; // Ripristina l'indice del carattere per il nuovo comando
-        setTimeout(typeCommand, typingSpeed);
+        commandIndex = (commandIndex + 1) % commands.length; // Passa al comando successivo
+        charIndex = 0; // Reset dell'indice dei caratteri per il prossimo comando
+        terminalText.textContent = ""; // Nascondi il testo prima di iniziare a digitare il prossimo comando
+        setTimeout(typeCommand, typingSpeed); // Inizia a digitare il nuovo comando
       } else {
-        setTimeout(typeCommand, deletingSpeed);
+        setTimeout(typeCommand, deletingSpeed); // Continua a cancellare
       }
     }
   }
   
-  // Avvia l'effetto di typing al caricamento della pagina
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("typing-text").textContent = ""; // Inizializza come vuoto
-    typeCommand();
-  });
+  // Avvia l'effetto di digitazione al caricamento della pagina
+  document.addEventListener("DOMContentLoaded", typeCommand);
