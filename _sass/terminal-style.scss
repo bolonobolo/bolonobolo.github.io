@@ -1,7 +1,3 @@
-#typing-text {
-    visibility: hidden; /* Nasconde il testo inizialmente */
-  }
-
 .terminal-banner {
     background-color: #1e1e1e;
     color: #a9dde0;
@@ -23,7 +19,9 @@
     color: #a9dde0;
     font-weight: bold;
   }
-  
+  #typing-text {
+    visibility: hidden; /* Nasconde il testo inizialmente */
+  }  
   .cursor {
     display: inline-block;
     width: 10px;
