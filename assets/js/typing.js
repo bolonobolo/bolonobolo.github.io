@@ -10,21 +10,20 @@ const commands = [
   let charIndex = 0;
   let isDeleting = false;
   
-  const typingSpeed = 200; // velocità di digitazione
+  const typingSpeed = 100; // velocità di digitazione
   const deletingSpeed = 50; // velocità di cancellazione
-  const delayBetweenCommands = 3000; // ritardo tra i comandi
-
-  // Assicurati che il contenuto sia inizialmente vuoto
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("typing-text").textContent = ""; // Rende il contenuto vuoto inizialmente
-    typeCommand();
-  });
+  const delayBetweenCommands = 2000; // ritardo tra i comandi
   
   function typeCommand() {
     const terminalText = document.getElementById("typing-text");
+  
+    // Rendi visibile il testo solo quando la funzione inizia
+    if (terminalText.style.visibility === "hidden") {
+      terminalText.style.visibility = "visible";
+    }
+  
     const currentCommand = commands[commandIndex];
   
-    // Aggiunge o rimuove caratteri in base allo stato
     if (!isDeleting) {
       terminalText.textContent = currentCommand.slice(0, charIndex++);
       if (charIndex > currentCommand.length) {
@@ -44,3 +43,6 @@ const commands = [
       }
     }
   }
+  
+  // Avvia l'effetto di typing al caricamento della pagina
+  document.addEventListener("DOMContentLoaded", typeCommand);
