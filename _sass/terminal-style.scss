@@ -1,6 +1,6 @@
 .terminal-banner {
     background-color: #1e1e1e;
-    color: #a9dde0; /* Colore del testo aggiornato */
+    color: #a9dde0; /* Colore del testo */
     font-family: monospace;
     padding: 20px;
     border-radius: 5px;
@@ -19,11 +19,6 @@
     content: "user@yourwebsite:~$ ";
     color: #a9dde0; /* Colore del prefisso */
     font-weight: bold;
-  }
-  
-  /* Testo nascosto inizialmente */
-  #typing-text {
-    visibility: hidden; /* Nasconde il testo fino all'inizio della digitazione */
   }
   
   .cursor {

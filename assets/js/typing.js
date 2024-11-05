@@ -16,12 +16,6 @@ const commands = [
   
   function typeCommand() {
     const terminalText = document.getElementById("typing-text");
-  
-    // Rendi visibile il testo solo quando la funzione inizia
-    if (terminalText.style.visibility === "hidden") {
-      terminalText.style.visibility = "visible";
-    }
-  
     const currentCommand = commands[commandIndex];
   
     if (!isDeleting) {
