@@ -13,12 +13,17 @@
     {% include head.html %}
     {% include head/custom.html %}
   </head>
-
+  <script src="{{ '/assets/js/typing.js' | relative_url }}"></script>
+    
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
     {% include_cached skip-links.html %}
     {% include_cached browser-upgrade.html %}
     {% include_cached masthead.html %}
 
+    <!-- <div class="terminal-banner">
+      <span id="typing-text"></span><span class="cursor"></span>
+    </div>  
+     -->
     <div class="initial-content">
       {{ content }}
     </div>
