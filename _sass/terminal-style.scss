@@ -21,8 +21,9 @@
       white-space: normal; /* Permette al testo di andare a capo */
       overflow: visible; /* Mostra il testo che va oltre */
     }
+    content: ":~$ ";
   }
-  
+    
   #typing-text {
     opacity: 1; /* Mantieni il testo visibile */
     transition: opacity 0.3s ease; /* Aggiungi una transizione per rendere l'effetto più fluido */

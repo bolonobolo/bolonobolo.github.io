@@ -3,7 +3,7 @@ const commands = [
     "./exploit_breaking_stuffs",
     "sh community && ./be_safe",
     "./run --privacy",
-    "./reuse && ./recycle"
+    "./reuse || ./recycle"
   ];
   
   let commandIndex = 0;
