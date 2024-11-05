@@ -13,6 +13,12 @@ const commands = [
   const typingSpeed = 200; // velocità di digitazione
   const deletingSpeed = 50; // velocità di cancellazione
   const delayBetweenCommands = 3000; // ritardo tra i comandi
+
+  // Assicurati che il contenuto sia inizialmente vuoto
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("typing-text").textContent = ""; // Rende il contenuto vuoto inizialmente
+    typeCommand();
+  });
   
   function typeCommand() {
     const terminalText = document.getElementById("typing-text");
