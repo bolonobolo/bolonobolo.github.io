@@ -16,7 +16,7 @@
   }
   
   .terminal-banner::before {
-    content: "user@yourwebsite:~$ ";
+    content: ":~$ ";
     color: #a9dde0; /* Colore del prefisso */
     font-weight: bold;
   }
