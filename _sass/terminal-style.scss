@@ -6,22 +6,25 @@
     border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-  
+    white-space: nowrap; /* Mantiene il testo su una sola linea */
+    overflow: hidden; /* Nasconde il testo in eccesso */
+    
     /* Imposta una larghezza fissa o percentuale per centrarlo */
     width: 60%; /* Cambia il valore a piacere */
     max-width: 660px; /* Limita la larghezza massima */
     margin: 0 auto; /* Centra il banner orizzontalmente */
-  }
   
-  .terminal-banner::before {
-    content: ":~$ ";
-    color: #a9dde0; /* Colore del prefisso */
-    font-weight: bold;
+    /* Aggiungi queste righe per migliorare la responsività */
+    @media (max-width: 768px) {
+      width: 90%; /* Usa una larghezza maggiore sui dispositivi mobili */
+      max-width: none; /* Rimuovi il limite di larghezza massima */
+      white-space: normal; /* Permette al testo di andare a capo */
+      overflow: visible; /* Mostra il testo che va oltre */
+    }
   }
   
   #typing-text {
+    opacity: 1; /* Mantieni il testo visibile */
     transition: opacity 0.3s ease; /* Aggiungi una transizione per rendere l'effetto più fluido */
   }
   
