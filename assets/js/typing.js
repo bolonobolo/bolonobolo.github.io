@@ -44,6 +44,3 @@ const commands = [
       }
     }
   }
-  
-  // Avvia l'effetto di typing al caricamento della pagina
-  document.addEventListener("DOMContentLoaded", typeCommand);
