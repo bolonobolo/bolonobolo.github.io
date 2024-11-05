@@ -1,6 +1,6 @@
 .terminal-banner {
     background-color: #1e1e1e;
-    color: #a9dde0;
+    color: #a9dde0; /* Colore del testo aggiornato */
     font-family: monospace;
     padding: 20px;
     border-radius: 5px;
@@ -8,24 +8,28 @@
     position: relative;
     white-space: nowrap;
     overflow: hidden;
-    /* Imposta una larghezza fissa o percentuale */
-    width: 60%; /* Cambia il valore a piacere, ad esempio 50%, 40em, ecc. */
+    
+    /* Imposta una larghezza fissa o percentuale per centrarlo */
+    width: 60%; /* Cambia il valore a piacere */
     max-width: 660px; /* Limita la larghezza massima */
-    margin: 0 auto; /* Centra l'elemento orizzontalmente */
+    margin: 0 auto; /* Centra il banner orizzontalmente */
   }
   
   .terminal-banner::before {
-    content: "$ ";
-    color: #a9dde0;
+    content: "user@yourwebsite:~$ ";
+    color: #a9dde0; /* Colore del prefisso */
     font-weight: bold;
   }
+  
+  /* Testo nascosto inizialmente */
   #typing-text {
-    visibility: hidden; /* Nasconde il testo inizialmente */
-  }  
+    visibility: hidden; /* Nasconde il testo fino all'inizio della digitazione */
+  }
+  
   .cursor {
     display: inline-block;
     width: 10px;
-    background-color: #a9dde0;
+    background-color: #a9dde0; /* Colore del cursore */
     animation: blink 0.8s steps(2) infinite;
     margin-left: 5px;
   }

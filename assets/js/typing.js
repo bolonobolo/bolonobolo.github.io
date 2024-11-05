@@ -1,9 +1,9 @@
 const commands = [
     "./share_the_knowledge",
     "./exploit_breaking_stuffs",
-	"sh community && ./be_safe",
-	"./run --privacy",
-	"./reuse && ./recycle"
+    "sh community && ./be_safe",
+    "./run --privacy",
+    "./reuse && ./recycle"
   ];
   
   let commandIndex = 0;
