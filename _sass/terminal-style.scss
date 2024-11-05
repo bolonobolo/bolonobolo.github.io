@@ -1,6 +1,6 @@
 .terminal-banner {
     background-color: #1e1e1e;
-    color: #00ff00;
+    color: #a9dde0;
     font-family: monospace;
     padding: 20px;
     border-radius: 5px;
@@ -10,13 +10,13 @@
     overflow: hidden;
     /* Imposta una larghezza fissa o percentuale */
     width: 60%; /* Cambia il valore a piacere, ad esempio 50%, 40em, ecc. */
-    max-width: 600px; /* Limita la larghezza massima */
+    max-width: 660px; /* Limita la larghezza massima */
     margin: 0 auto; /* Centra l'elemento orizzontalmente */
   }
   
   .terminal-banner::before {
     content: "$ ";
-    color: #00ff00;
+    color: #a9dde0;
     font-weight: bold;
   }
   
