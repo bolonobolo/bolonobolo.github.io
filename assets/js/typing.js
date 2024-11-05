@@ -24,6 +24,7 @@ const commands = [
         isDeleting = true;
         setTimeout(typeCommand, delayBetweenCommands);
       } else {
+        terminalText.style.opacity = 1; // Rendi visibile il testo quando inizia a digitare
         setTimeout(typeCommand, typingSpeed);
       }
     } else {
@@ -39,7 +40,4 @@ const commands = [
   }
   
   // Avvia l'effetto di typing al caricamento della pagina
-  document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("typing-text").textContent = ""; // Inizializza come vuoto
-    typeCommand();
-  });
+  document.addEventListener("DOMContentLoaded", typeCommand);

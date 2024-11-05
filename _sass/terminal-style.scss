@@ -8,7 +8,7 @@
     position: relative;
     white-space: nowrap;
     overflow: hidden;
-    
+  
     /* Imposta una larghezza fissa o percentuale per centrarlo */
     width: 60%; /* Cambia il valore a piacere */
     max-width: 660px; /* Limita la larghezza massima */
@@ -16,9 +16,14 @@
   }
   
   .terminal-banner::before {
-    content: ":~$ ";
+    content: "user@yourwebsite:~$ ";
     color: #a9dde0; /* Colore del prefisso */
     font-weight: bold;
+  }
+  
+  #typing-text {
+    opacity: 0; /* Rendi invisibile il testo inizialmente */
+    transition: opacity 0.3s ease; /* Aggiungi una transizione per rendere l'effetto più fluido */
   }
   
   .cursor {
