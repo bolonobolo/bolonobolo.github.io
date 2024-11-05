@@ -11,7 +11,7 @@ const commands = [
   let isDeleting = false;
   
   const typingSpeed = 200; // velocità di digitazione
-  const deletingSpeed = 100; // velocità di cancellazione
+  const deletingSpeed = 50; // velocità di cancellazione
   const delayBetweenCommands = 3000; // ritardo tra i comandi
   
   function typeCommand() {
