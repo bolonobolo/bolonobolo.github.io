@@ -2,7 +2,7 @@ const commands = [
     "./share_the_knowledge",
     "./exploit_breaking_stuffs",
 	"sh community && ./be_safe",
-	"./run --privacy --community",
+	"./run --privacy",
 	"./reuse && ./recycle"
   ];
   
@@ -10,9 +10,9 @@ const commands = [
   let charIndex = 0;
   let isDeleting = false;
   
-  const typingSpeed = 100; // velocità di digitazione
-  const deletingSpeed = 50; // velocità di cancellazione
-  const delayBetweenCommands = 2000; // ritardo tra i comandi
+  const typingSpeed = 200; // velocità di digitazione
+  const deletingSpeed = 100; // velocità di cancellazione
+  const delayBetweenCommands = 3000; // ritardo tra i comandi
   
   function typeCommand() {
     const terminalText = document.getElementById("typing-text");
