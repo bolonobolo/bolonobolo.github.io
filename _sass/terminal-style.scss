@@ -21,7 +21,12 @@
       white-space: normal; /* Permette al testo di andare a capo */
       overflow: visible; /* Mostra il testo che va oltre */
     }
+  }
+
+  .terminal-banner::before {
     content: ":~$ ";
+    color: #a9dde0; /* Colore del prefisso */
+    font-weight: bold;
   }
     
   #typing-text {
