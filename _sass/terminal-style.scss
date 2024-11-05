@@ -16,6 +16,9 @@
   
     /* Aggiungi queste righe per migliorare la responsività */
     @media (max-width: 768px) {
+      content: ":~$ ";
+      color: #a9dde0; /* Colore del prefisso */
+      font-weight: bold;
       width: 90%; /* Usa una larghezza maggiore sui dispositivi mobili */
       max-width: none; /* Rimuovi il limite di larghezza massima */
       white-space: normal; /* Permette al testo di andare a capo */
